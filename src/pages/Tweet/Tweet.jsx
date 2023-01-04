@@ -1,6 +1,5 @@
 import './Tweet.css'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
  
 const Tweet = (props) => {
    // define our state variable - []
@@ -32,7 +31,50 @@ const Tweet = (props) => {
            console.log(err)
        }
    }
- 
+   const handleChange = (e) => {
+    // console.log(newForm)
+    const userInput = { ...newForm }
+    userInput[e.target.name] = e.target.value
+    setNewForm(userInput)
+}
+
+const handleSubmit = async (e) => {
+    // 0. prevent default (event object method)
+    e.preventDefault()
+    // 1. capturing our local state
+    const currentState = { ...newForm }
+    // check any fields for property data types / truthy value (function call - stretch)
+    try {
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(currentState)
+        }
+        // 2. specify request method , headers, Content-Type
+        // 3. make fetch to BE - sending data (requestOptions)
+
+        // 3a fetch sends the data to API - (mongo)
+        const response = await fetch(BASE_URL, requestOptions)
+        // 4. check our response -
+        // 5. parse the data from the response into JS (from JSON)
+        const createdTweet = await response.json()
+        console.log(createdTweet)
+        // update local state with response (json from be)
+        setTweet([...tweet, createdTweet])
+        // reset newForm state so that our form empties out
+        setNewForm({
+            name: "",
+            image: "",
+            title: "",
+        })
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
    useEffect(() => {
        getTweet()
    }, [])
