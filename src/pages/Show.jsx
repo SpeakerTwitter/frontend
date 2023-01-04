@@ -26,7 +26,29 @@ const Show = (props) => {
        }
    }
    // make a fetch
- 
+   const removeTweet = async (e) => {
+    try {
+
+        // configure our delete request
+        const options = {
+            method: "DELETE"
+        }
+        const response = await fetch(URL, options)
+        const deletedTweet = await response.json()
+
+        // make a fetch (delete)
+        console.log(deletedTweet)
+        // await response / parse response
+        // navigate() -> change the current page the browser is at / client side redirect
+        navigate("/")
+    } catch (err) {
+        console.log(err)
+        // stretch - populate an error on your page - when a delete fails
+        // populate some state (3 seconds)
+        // redirect to a 404 page (client)
+    }
+}
+
    
    const isLoading = () => (<h2>....Loading</h2>)
    const loaded = () => (
