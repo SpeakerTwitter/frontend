@@ -1,80 +1,128 @@
-import { useState, useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
- 
-const placeholderImage = "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
- 
+import React from 'react'
+import { useState, useEffect } from "react"
+import { Navigate, useParams, useNavigate } from "react-router-dom"
 const Show = (props) => {
-   // local state (Show)
-   const [tweet, setTweet] = useState(null)
-   const [loading, setLoading] = useState(true)
-   // access information about the current url path for browser
- 
-   const { id } = useParams()
-   const navigate = useNavigate()
-   // define some local variables
-   const URL = `http://localhost:4000/tweet/${id}`
- 
-   const getTweet = async () => {
-       try {
-           const response = await fetch(URL)
-           const result = await response.json()
-           console.log(result)
-           setTweet(result)
-           setLoading(false)
-       } catch (err) {
-           console.log(err)
-       }
-   }
-   // make a fetch
-   const removeTweet = async (e) => {
-    try {
-
-        // configure our delete request
-        const options = {
-            method: "DELETE"
-        }
-        const response = await fetch(URL, options)
-        const deletedTweet = await response.json()
-
-        // make a fetch (delete)
-        console.log(deletedTweet)
-        // await response / parse response
-        // navigate() -> change the current page the browser is at / client side redirect
-        navigate("/")
-    } catch (err) {
-        console.log(err)
-        // stretch - populate an error on your page - when a delete fails
-        // populate some state (3 seconds)
-        // redirect to a 404 page (client)
+    //set state for person details
+    const [tweet, setTweet] = useState(null);
+    const [editForm, setEditForm] = useState(tweet);
+    // take in the ID parameter from router
+    const { id } = useParams();
+    const navigate = useNavigate();
+    // person details URL for fetch
+    const URL = `http://localhost:4000/tweet/${id}`;
+    const handleChange = (e) => {
+        setEditForm({ ...editForm, [e.target.name]: e.target.value })
     }
+    // function to fetch person details for useEffect
+    const getTweet = async () => {
+        try {
+            const response = await fetch(URL);// fetch
+            const foundTweet = await response.json();
+            setTweet(foundTweet); // set state to person detail result
+            setEditForm(foundTweet);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    //Update Person
+    const updatedTweet = async (e) => {
+        e.preventDefault()
+        // make put request to update a person
+        try {
+            const options = // configure put request
+            {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(editForm),
+            }
+            const response = await fetch(URL, options);
+            const updatedTweet = await response.json();
+            setTweet(updatedTweet);
+            setEditForm(updatedTweet);
+        } catch (err) {
+            console.log(err)
+            navigate(URL)
+        }
+    }
+    const removeTweet = async (e) => {
+        try {
+            const options = // configure delete request
+            {
+                method: "DELETE"
+            }
+            const response = await fetch(URL, options);
+            const deletedTweet = await response.json();
+            // console.log(deletedPerson);
+            navigate("/")
+        } catch (err) {
+            console.log(err)
+            navigate(URL)
+        }
+    }
+    useEffect(() => { getTweet() }, []) // fetch person detail on MOUNT()
+    // Person Details Loaded
+    const loaded = () => {
+        return (
+            <>
+                <section>
+                    <div className="tweet">
+                        <h1>Show Page</h1>
+                        <h2>{tweet.name}</h2>
+                        <h2>{tweet.title}</h2>
+                        <img src={tweet.image} alt={tweet.name} width={400} />
+                        <div>
+                            <button className="delete" onClick={removeTweet}>
+                                Remove Tweet
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Edit this Tweet</h2>
+                    <form onSubmit={updatedTweet}>
+                        <input
+                            type="text"
+                            value={editForm.name}
+                            name="name"
+                            placeholder="name"
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            value={editForm.image}
+                            name="image"
+                            placeholder="image URL"
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            value={editForm.title}
+                            name="title"
+                            placeholder="title"
+                            onChange={handleChange}
+                        />
+                        <input type="submit" value="Update Tweet" />
+                    </form>
+                </section>
+            </>
+        )
+    }
+    // Loading
+    const loading = () => {
+        return (
+            <section className="loading">
+                <h1>
+                    Loading...
+                    <span>
+                        <img
+                            className="spinner"
+                            src="https://freesvg.org/img/1544764567.png"
+                        />{" "}
+                    </span>
+                </h1>
+            </section>
+        )
+    }
+    return tweet && tweet.length ? loaded() : loading()
 }
-
-   
-   const isLoading = () => (<h2>....Loading</h2>)
-   const loaded = () => (
-       <>
-           <div className="tweet-card">
-               {/* React optimization / difference */}
-               <h1>{tweet.name}</h1>
-               <div>
-                   <p>Delete Tweet</p>
-                   <button onClick={removeTweet}> X </button>
-               </div>
-               <img src={tweet.image || placeholderImage} />
-               <h3>{tweet.title || "Not tweet given"}</h3>
-           </div>
-           <Link to="/">Back to Home</Link>
-       </>
-   )
-   useEffect(() => { getTweet() }, [id,loading])
-   // confirm + render JSX +++
-   // console.log(`current person: ${person?._id || "no person"}`)
-   return (
-       <section className="ShowContainer">
- 
-           {loading ? isLoading() : loaded()}
- 
-       </section>)
-}
- 
 export default Show
