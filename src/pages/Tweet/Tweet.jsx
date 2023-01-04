@@ -158,6 +158,7 @@ const loading = () => (
                    </div>
                </form>
            </section>
+           {tweet && tweet.length ? loaded() : loading()}
        </div >
    )
  
