@@ -94,6 +94,15 @@ const loaded = () => {
     </>
     )
 }
+const loading = () => (
+    <section className="tweet-list">
+        <h1>
+            <span>
+                <h1>No Tweets</h1>
+            </span>
+        </h1>
+    </section>
+);
 
 
    useEffect(() => {
