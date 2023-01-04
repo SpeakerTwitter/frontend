@@ -74,6 +74,27 @@ const handleSubmit = async (e) => {
         console.log(err)
     }
 }
+const loaded = () => {
+    return (<>
+        <section className="tweet-list">
+            {tweet?.map((twit) => {
+                return (
+                    <Link key={twit._id} to={`/tweet/${twit._id}`}>
+                        <div className="tweet-card">
+                            {/* React optimization / difference */}
+                            <h1>{twit.name}</h1>
+                            <img src={twit.image} />
+                            <h3>{twit.title}</h3>
+                        </div>
+                    </Link>
+                )
+            })
+            }
+        </section>
+    </>
+    )
+}
+
 
    useEffect(() => {
        getTweet()
