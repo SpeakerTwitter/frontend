@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const TweetContainer = () => {
   return (
-    <div>This is the Tweet Container</div>
-  )
-}
+    <div>
+      <h1>This is the Tweet Container</h1>
+    </div>
+  );
+};
 
-export default TweetContainer
+export default TweetContainer;
