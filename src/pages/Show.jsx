@@ -9,7 +9,7 @@ const Show = (props) => {
     const { id } = useParams();
     const navigate = useNavigate();
     // person details URL for fetch
-    const URL = `http://localhost:4000/tweet/${id}`;
+    const URL = `http://localhost:4000/tweets/${id}`;
     const handleChange = (e) => {
         setEditForm({ ...editForm, [e.target.name]: e.target.value })
     }

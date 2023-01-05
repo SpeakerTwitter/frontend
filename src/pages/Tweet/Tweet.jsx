@@ -10,7 +10,7 @@ const Tweet = (props) => {
     title: "",
   });
   // API URL
-  const BASE_URL = "http://localhost:4000/tweet";
+  const BASE_URL = "http://localhost:4000/tweets";
   // Use tweet function to call in useEffect
   const getTweet = async () => {
     try {
