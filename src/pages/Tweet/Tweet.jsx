@@ -125,6 +125,7 @@ const Tweet = (props) => {
                   alt=""
                   width={200}
                 />
+                <h2>{tweet.createdAt}</h2>
               </div>
             );
           })}
