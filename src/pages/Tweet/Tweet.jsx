@@ -71,6 +71,7 @@ const Tweet = (props) => {
             <label>
               <input
                 className="person"
+                autocomplete="off"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -81,6 +82,7 @@ const Tweet = (props) => {
             <label>
               <input
                 className="TheTweet"
+                autocomplete="off"
                 type="text"
                 value={newForm.image}
                 name="image"
@@ -91,6 +93,7 @@ const Tweet = (props) => {
             <label>
               <input
                 className="image"
+                autocomplete="off"
                 type="text"
                 value={newForm.title}
                 name="title"
