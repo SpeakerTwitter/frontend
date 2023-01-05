@@ -87,6 +87,7 @@ const Tweet = (props) => {
                 value={newForm.image}
                 name="image"
                 placeholder="What's happening?"
+                maxlength="35"
                 onChange={handleChange}
               />
             </label>
@@ -102,7 +103,7 @@ const Tweet = (props) => {
               />
             </label>
             <div className="buttonDiv">
-              <input className="TweetButton" type="submit" value="Tweet!" />
+              <input className="TweetButton" type="submit" value="Tweet" />
             </div>
           </form>
         </section>
