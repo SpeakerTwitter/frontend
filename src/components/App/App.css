@@ -17,8 +17,10 @@ nav{
     display: flex;
     flex-direction: row;
 }
-.homeLink{
-    margin-left: 50px
+a{
+    margin-left: 50px;
+    text-decoration: none;
+    color:black;
 }
 Header{
     border-bottom: 1px solid black;
@@ -26,9 +28,8 @@ Header{
 
 .person::placeholder{
     font-weight: 800;
-    font-size: 18px
+    font-size: 18px;
 }
-
 .TheTweet{
     height: 100px;
 }
@@ -39,7 +40,12 @@ Header{
     font-size: 24px;
     background-color: white;
     font-family: 'Noto Sans JP', sans-serif;
-
+    outline: none;
+}
+.person{
+    font-size: 18px;
+    color: black;
+    font-weight: 800;
 }
 .form{
     width: 500px;
@@ -60,10 +66,4 @@ Header{
     text-align: center;
     font-size: 16px;
     border-radius: 40px;
-}
-.FormBlock{
-    /* border: 3px solid orange; */
-}
-.home{
-    /* border: 3px solid blue */
 }
