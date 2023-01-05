@@ -6,8 +6,8 @@ const Tweet = (props) => {
   const [tweet, setTweet] = useState([]);
   const [newForm, setNewForm] = useState({
     name: "",
-    image: "",
     title: "",
+    image: "",
   });
   // API URL
   const BASE_URL = "http://localhost:4000/tweets";
@@ -53,16 +53,16 @@ const Tweet = (props) => {
       // reset newForm state so that our form empties out
       setNewForm({
         name: "",
-        image: "",
         title: "",
+        image: "",
       });
     } catch (err) {
       console.log(err);
     }
   };
-//TODO max length announcment
-// let content = $("input#thetweet").val
-// console.log(content)
+  //TODO max length announcment
+  // let content = $("input#thetweet").val
+  // console.log(content)
 
   // People are Loaded
   const loaded = () => {
@@ -88,8 +88,8 @@ const Tweet = (props) => {
                 className="TheTweet"
                 autoComplete="off"
                 type="text"
-                value={newForm.image}
-                name="image"
+                value={newForm.title}
+                name="title"
                 placeholder="What's happening?"
                 maxLength="55"
                 onChange={handleChange}
@@ -100,8 +100,8 @@ const Tweet = (props) => {
                 className="image"
                 autoComplete="off"
                 type="text"
-                value={newForm.title}
-                name="title"
+                value={newForm.image}
+                name="image"
                 placeholder="URL"
                 onChange={handleChange}
               />
@@ -111,15 +111,20 @@ const Tweet = (props) => {
             </div>
           </form>
         </section>
-        <section className="tweet-list">
+        <section className="tweetCardList">
           {tweet?.map((tweet) => {
             return (
               <div key={tweet._id} className="tweet-card">
                 <Link to={`/tweet/${tweet._id}`}>
-                  <h1>{tweet.name}</h1>
+                  <h1 className="tweetName">{tweet.name}</h1>
                 </Link>
-                <img src={tweet.image} alt={tweet.name} width={200} />
-                <h3>{tweet.title}</h3>
+                <h3 className="tweetTitle">{tweet.title}</h3>
+                <img
+                  className="tweetImage"
+                  src={tweet.image}
+                  alt=""
+                  width={200}
+                />
               </div>
             );
           })}

@@ -31,7 +31,7 @@ Header{
     font-size: 18px;
 }
 .TheTweet{
-    height: 100px;
+    height: 200px;
     width: 200px;
     word-wrap: break-word;
 }
@@ -71,5 +71,21 @@ Header{
     border-radius: 40px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
-
+}
+.tweetCardList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(109, 194, 248);
+}
+.tweet-card{
+    border: 3px solid orange;
+    width: 500px;
+}
+h1.tweetName{
+    margin:0;
+    height: 50px
+}
+.tweetImage{
+    display: 'none';
 }
