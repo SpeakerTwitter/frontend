@@ -123,6 +123,6 @@ const Show = (props) => {
             </section>
         )
     }
-    return tweet && tweet.length ? loaded() : loading()
+    return tweet ? loaded() : loading()
 }
 export default Show

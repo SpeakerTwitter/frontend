@@ -1,0 +1,14 @@
+.FormBlock{
+    display: flex;
+    justify-content: center;
+    position:fixed sticky;
+}
+img{
+    width: 50px
+}
+Header{
+    border-bottom: 1px solid black;
+}
+button.TweetButton{
+    background-color: aqua;
+}

@@ -11,8 +11,8 @@ const Tweet= (props)=>
     title: "",
   });
   // API URL
-  const BASE_URL= "http://localhost:4000/people";
-  // Use People function to call in useEffect
+  const BASE_URL= "http://localhost:4000/tweet";
+  // Use tweet function to call in useEffect
   const getTweet= async()=>
   {
     try
@@ -71,15 +71,15 @@ const Tweet= (props)=>
   {
     return (
       <>
-      <section>
-        <h2>Create a new Tweet</h2>
+      <section className="FormBlock">
+      <img src="https://img.icons8.com/color/512/test-account.png" />
+
         <form onSubmit={handleSubmit}>
           <label>
-            Name
             <input
               type='text'
               name='name'
-              placeholder="name"
+              placeholder="What's happening?"
               value={newForm.name}
               onChange={handleChange}
             />
@@ -102,19 +102,22 @@ const Tweet= (props)=>
               onChange={handleChange}
             />
           </label>
-          <input type="submit" value="Create Tweet" />
+          <div className="TweetButton">
+            <input type="submit" value="Tweet!" />
+
+          </div>
         </form>
       </section>
       <section className='tweet-list'>
-        {tweet?.map((twit) =>
+        {tweet?.map((tweet) =>
           {
             return(
-              <div key={twit._id} className='tweet-card'>
-                <Link to={`/tweet/${twit._id}`}>
-                  <h1>{twit.name}</h1>
+              <div key={tweet._id} className='tweet-card'>
+                <Link to={`/tweet/${tweet._id}`}>
+                  <h1>{tweet.name}</h1>
                 </Link>
-                <img src={twit.image} alt={twit.name}  width={200}/>
-                <h3>{twit.title}</h3>
+                <img src={tweet.image} alt={tweet.name}  width={200}/>
+                <h3>{tweet.title}</h3>
                </div>
             );
           })
