@@ -69,7 +69,7 @@ const Show = (props) => {
                         <h1>Show Page</h1>
                         <h2>{tweet.name}</h2>
                         <h2>{tweet.title}</h2>
-                        <img src={tweet.image} alt={tweet.name} width={400} />
+                        <img src={tweet.image} alt={tweet.image}width={400} />
                         <div>
                             <button className="delete" onClick={removeTweet}>
                                 Remove Tweet
