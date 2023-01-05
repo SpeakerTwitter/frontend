@@ -2,13 +2,55 @@
     display: flex;
     justify-content: center;
     position:fixed sticky;
+    width: 100%
 }
 img{
-    width: 50px
+    width: 50px;
+    height: 50px;
+    margin: 10px;
 }
 Header{
     border-bottom: 1px solid black;
 }
-button.TweetButton{
-    background-color: aqua;
+
+.person{
+    font-weight: 800;
+}
+
+.TheTweet{
+    height: 100px;
+    
+}
+.person, .TheTweet, .image{
+    display: flex;
+    flex-direction: column;
+    border: transparent;
+    font-size: 24px;
+    background-color: white;
+}
+.form{
+    width: 500px;
+    border: solid 1px rgba(0, 0, 0, 0.4);
+    border-top: transparent;
+    padding: 5px;
+}
+.buttonDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.TweetButton{
+    background-color: rgb(109, 194, 248); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 40px;
+}
+.FormBlock{
+    /* border: 3px solid orange; */
+}
+.home{
+    /* border: 3px solid blue */
 }
