@@ -1,15 +1,19 @@
-import { Link } from 'react-router-dom'
- 
+import { Link } from "react-router-dom";
+
 const Header = (props) => {
-   return (
-       <header style={{overflow: 'hidden' }}>
-           <nav className="nav">
-               <Link to='/'>
-                    <h1>Home</h1>
-               </Link>
-           </nav>
-       </header>
-   )
-}
- 
-export default Header
+  return (
+    <header style={{ overflow: "hidden" }}>
+      <nav className="nav">
+        <img
+          src="https://img.icons8.com/color/512/twitter--v1.png"
+          alt="twitter bird"
+        />
+        <Link to="/">
+          <h1 className="homeLink">Home</h1>
+        </Link>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;

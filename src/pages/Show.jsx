@@ -63,7 +63,7 @@ const Show = (props) => {
     // Person Details Loaded
     const loaded = () => {
         return (
-            <>
+            <div>
                 <section>
                     <div className="tweet">
                         <h1>Show Page</h1>
@@ -104,7 +104,7 @@ const Show = (props) => {
                         <input type="submit" value="Update Tweet" />
                     </form>
                 </section>
-            </>
+            </div>
         )
     }
     // Loading
