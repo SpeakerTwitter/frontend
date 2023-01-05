@@ -32,6 +32,8 @@ Header{
 }
 .TheTweet{
     height: 100px;
+    width: 200px;
+    word-wrap: break-word;
 }
 .person, .TheTweet, .image{
     display: flex;
@@ -41,6 +43,7 @@ Header{
     background-color: white;
     font-family: 'Noto Sans JP', sans-serif;
     outline: none;
+    width: 100%;
 }
 .person{
     font-size: 18px;

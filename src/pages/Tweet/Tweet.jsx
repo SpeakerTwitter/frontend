@@ -60,6 +60,10 @@ const Tweet = (props) => {
       console.log(err);
     }
   };
+//TODO max length announcment
+// let content = $("input#thetweet").val
+// console.log(content)
+
   // People are Loaded
   const loaded = () => {
     return (
@@ -71,7 +75,7 @@ const Tweet = (props) => {
             <label>
               <input
                 className="person"
-                autocomplete="off"
+                autoComplete="off"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -82,19 +86,19 @@ const Tweet = (props) => {
             <label>
               <input
                 className="TheTweet"
-                autocomplete="off"
+                autoComplete="off"
                 type="text"
                 value={newForm.image}
                 name="image"
                 placeholder="What's happening?"
-                maxlength="35"
+                maxLength="55"
                 onChange={handleChange}
               />
             </label>
             <label>
               <input
                 className="image"
-                autocomplete="off"
+                autoComplete="off"
                 type="text"
                 value={newForm.title}
                 name="title"
