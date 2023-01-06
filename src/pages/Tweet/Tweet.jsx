@@ -60,13 +60,21 @@ const Tweet = (props) => {
       console.log(err);
     }
   };
+  function countChars(obj){
+    var maxLength = 20;
+    var strLength = obj.value.length;
+    
+    if(strLength > maxLength){
+        document.getElementById("charNum").innerHTML = '<span style="color: red;">'+strLength+' out of '+maxLength+' characters</span>';
+    }else{
+        document.getElementById("charNum").innerHTML = strLength+' out of '+maxLength+' characters';
+    }
+}
 
   const loaded = () => {
     return (
       <div className="home">
         <section className="FormBlock">
-          
-
           <form className="form" onSubmit={handleSubmit}>
             <label className="tweet">
               <img src="https://img.icons8.com/color/512/test-account.png" />
@@ -87,6 +95,7 @@ const Tweet = (props) => {
                 type="text"
                 value={newForm.title}
                 name="title"
+                onKeyUp="countChars(obj)"
                 placeholder="What's happening?"
                 maxLength="200"
                 onChange={handleChange}
@@ -108,6 +117,9 @@ const Tweet = (props) => {
             </div>
           </form>
         </section>
+        <textarea name="message" onkeyup="countChars(this);"></textarea>
+        <p id="charNum">0 characters</p>
+
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
             return (
