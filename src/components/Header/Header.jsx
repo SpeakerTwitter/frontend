@@ -4,7 +4,7 @@ const Header = (props) => {
   return (
     <header style={{ overflow: "hidden" }}>
       <nav className="nav">
-        <img
+        <img className="twitterBird"
           src="https://img.icons8.com/color/512/twitter--v1.png"
           alt="twitter bird"
         />
