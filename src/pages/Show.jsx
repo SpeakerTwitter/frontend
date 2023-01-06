@@ -71,22 +71,33 @@ const Show = (props) => {
         <section>
           <div className="tweet">
             <section className="clickedTweet">
-              <h2>{tweet.name}</h2>
-              <h2>{tweet.title}</h2>
-              <img src={tweet.image} alt={tweet.image} width={400} />
-              <div>
-                <button className="delete" onClick={removeTweet}>
-                  Remove Tweet
-                </button>
+              <div className="tweetDeleteHeader">
+                <img src="https://img.icons8.com/color/512/test-account.png" />
+                <div className="nameAndDelete">
+                <h2 className="showName">{tweet.name}</h2>
+                <img
+                  className="delete"
+                  src="https://img.icons8.com/ios/512/delete-sign.png"
+                  alt="delete"
+                  onClick={removeTweet}
+                />
+                </div>
               </div>
+              <h2 className="showTweet">{tweet.title}</h2>
+              <img
+                className="showImage"
+                src={tweet.image}
+                alt={tweet.image}
+                width={400}
+              />
             </section>
           </div>
         </section>
-        <section>
-          <h2>Edit this Tweet</h2>
-          <form onSubmit={updatedTweet}>
+        <section className="updateFormSection">
+          <form className="updateForm" onSubmit={updatedTweet}>
             <input
               type="text"
+              className="updateName"
               value={editForm.name}
               name="name"
               placeholder="name"
@@ -95,6 +106,7 @@ const Show = (props) => {
             />
             <input
               type="text"
+              className="updateImage"
               value={editForm.image}
               name="image"
               placeholder="image URL"
@@ -102,6 +114,7 @@ const Show = (props) => {
             />
             <input
               type="text"
+              className="updateTweet"
               value={editForm.title}
               name="title"
               placeholder="title"
