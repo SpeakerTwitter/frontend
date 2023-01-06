@@ -81,14 +81,14 @@ const Tweet = (props) => {
               />
             </label>
             <label>
-              <input
+              <textarea
                 className="TheTweet"
                 autoComplete="off"
                 type="text"
                 value={newForm.title}
                 name="title"
                 placeholder="What's happening?"
-                maxLength="55"
+                maxLength="200"
                 onChange={handleChange}
               />
             </label>
