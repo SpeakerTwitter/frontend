@@ -1,9 +1,11 @@
+.tweetDeleteHeader{
+    display: flex;
+}
 .clickedTweet{
     width: 500px;
     border: solid 1px rgba(0, 0, 0, 0.4);
     border-top: transparent;
     padding: 5px;
-
 }
 .tweet{
     display: flex;
@@ -38,6 +40,7 @@
 .nameAndDelete{
     display:flex;
     justify-content: space-between;
+
 }
 .showName{
     font-size: 18px;
