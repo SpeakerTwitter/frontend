@@ -60,11 +60,7 @@ const Tweet = (props) => {
       console.log(err);
     }
   };
-  //TODO max length announcment
-  // let content = $("input#thetweet").val
-  // console.log(content)
 
-  // People are Loaded
   const loaded = () => {
     return (
       <div className="home">

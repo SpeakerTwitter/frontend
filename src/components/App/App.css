@@ -1,91 +1,124 @@
-.App{
-    font-family: 'Noto Sans JP', sans-serif;
+.App {
+  font-family: "Noto Sans JP", sans-serif;
 }
-.FormBlock{
-    display: flex;
-    justify-content: center;
-    position:fixed sticky;
-    width: 100%;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-img{
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-}
-nav{
-    display: flex;
-    flex-direction: row;
-}
-a{
-    margin-left: 50px;
-    text-decoration: none;
-    color:black;
-}
-Header{
-    border-bottom: 1px solid black;
+.twitterBird:hover {
+  animation: rotate-center 0.6s ease-in-out both;
 }
 
-.person::placeholder{
-    font-weight: 800;
-    font-size: 18px;
-}
-.TheTweet{
-    height: 100px;
-    width: 200px;
-    word-wrap: break-word;
-}
-.person, .TheTweet, .image{
-    display: flex;
-    flex-direction: column;
-    border: transparent;
-    font-size: 24px;
-    background-color: white;
-    font-family: 'Noto Sans JP', sans-serif;
-    outline: none;
-    width: 100%;
-}
-.person{
-    font-size: 18px;
-    color: black;
-    font-weight: 800;
-}
-.form{
-    width: 500px;
-    border: solid 1px rgba(0, 0, 0, 0.4);
-    border-top: transparent;
-    padding: 5px;
-}
-.buttonDiv{
-    display: flex;
-    justify-content: flex-end;
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.TweetButton{
-    background-color: rgb(109, 194, 248); /* Green */
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 40px;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 700;
+.FormBlock {
+  display: flex;
+  justify-content: center;
+  position: fixed sticky;
+  width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
 }
-.tweetCardList{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(109, 194, 248);
+img {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
 }
-.tweet-card{
-    border: 3px solid orange;
-    width: 500px;
+nav {
+  display: flex;
+  flex-direction: row;
 }
-h1.tweetName{
-    margin:0;
-    height: 50px
+a {
+  margin-left: 50px;
+  text-decoration: none;
+  color: black;
 }
-.tweetImage{
-    display: 'none';
+Header {
+  border-bottom: 1px solid black;
+}
+
+.person::placeholder {
+  font-weight: 800;
+  font-size: 18px;
+}
+.TheTweet {
+  height: 100px;
+  width: 200px;
+  word-wrap: break-word;
+}
+.person,
+.TheTweet,
+.image {
+  display: flex;
+  flex-direction: column;
+  border: transparent;
+  font-size: 24px;
+  background-color: white;
+  font-family: "Noto Sans JP", sans-serif;
+  outline: none;
+  width: 100%;
+}
+.person {
+  font-size: 18px;
+  color: black;
+  font-weight: 800;
+}
+.form {
+  width: 500px;
+  border: solid 1px rgba(0, 0, 0, 0.4);
+  border-top: transparent;
+  padding: 5px;
+}
+.buttonDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.TweetButton {
+  background-color: rgb(109, 194, 248); /* Green */
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 40px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+}
+.TweetButton:focus {
+  animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
+  animation-duration: 1s;
+}
+
+@keyframes flip-horizontal-bottom {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(-180deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+}
+
+.tweetCardList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(109, 194, 248);
+}
+.tweet-card {
+  border: 3px solid orange;
+  width: 500px;
+}
+h1.tweetName {
+  margin: 0;
+  height: 50px;
+}
+.tweetImage {
+  display: "none";
 }
