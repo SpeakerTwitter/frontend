@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Comments = () => {
     const [comment, setComment]=useState([])
     const [newComment, setNewComment]=useState({
-        name: "",
-        title: "",
-        image: "",
+        CommentName: "",
+        CommentTitle: "",
+        CommentImage: "",
     })
 
     // API URL
@@ -54,9 +54,9 @@ const Comments = () => {
       setComment([...comment, createdComment]);
       // reset newForm state so that our form empties out
       setNewComment({
-        name: "",
-        title: "",
-        image: "",
+        CommentName: "",
+        CommentTitle: "",
+        CommentImage: "",
       });
     } catch (err) {
       console.log(err);
@@ -73,7 +73,7 @@ const Comments = () => {
               <input
                 autoComplete="off"
                 type="text"
-                name="name"
+                name="CommentName"
                 placeholder="Name"
                 value={newComment.CommentName}
                 onChange={handleChange}
@@ -84,7 +84,7 @@ const Comments = () => {
                 autoComplete="off"
                 type="text"
                 value={newComment.CommentTitle}
-                name="title"
+                name="CommentTitle"
                 placeholder="What's happening?"
                 maxLength="55"
                 onChange={handleChange}
@@ -95,7 +95,7 @@ const Comments = () => {
                 autoComplete="off"
                 type="text"
                 value={newComment.CommentImage}
-                name="image"
+                name="CommentImage"
                 placeholder="URL"
                 onChange={handleChange}
               />
@@ -113,12 +113,12 @@ const Comments = () => {
                   <h1 className="tweetName">{tweet.name}</h1>
                 </Link> */}
                 <h3>{comment.CommentTitle}</h3>
-                <img
+                {/* <img
                   src={comment.CommentImage}
                   alt=""
                   width={200}
                 />
-                <h2>{comment.createdAt}</h2>
+                <h2>{comment.createdAt}</h2> */}
               </div>
             );
           })}
