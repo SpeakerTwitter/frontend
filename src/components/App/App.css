@@ -107,7 +107,7 @@ Header {
 
 .tweetCardList {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   background-color: rgb(109, 194, 248);
 }
