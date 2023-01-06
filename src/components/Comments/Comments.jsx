@@ -125,7 +125,7 @@ const Comments = () => {
       </div>
     );
   };
-  
+
   // Loading
   const loading = () => (
     <section className="loading">
@@ -141,16 +141,13 @@ const Comments = () => {
     </section>
   );
 
-
-
-
-
-
-
+  useEffect(() => {
+    getComment();
+  }, []);
 
   return (
     <div>
-        
+        <section>{comment ? loaded() : loading()}</section>
 
     </div>
   )
