@@ -101,7 +101,7 @@ const Comments = () => {
               />
             </label>
             <div>
-              <input type="submit" value="Tweet" />
+              <input type="submit" value="Comment" />
             </div>
           </form>
         </section>
