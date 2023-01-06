@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const Comments = () => {
     const [comment, setComment]=useState([])
@@ -74,7 +75,7 @@ const Comments = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
-                value={newComment.name}
+                value={newComment.CommentName}
                 onChange={handleChange}
               />
             </label>
@@ -82,7 +83,7 @@ const Comments = () => {
               <input
                 autoComplete="off"
                 type="text"
-                value={newComment.title}
+                value={newComment.CommentTitle}
                 name="title"
                 placeholder="What's happening?"
                 maxLength="55"
@@ -93,7 +94,7 @@ const Comments = () => {
               <input
                 autoComplete="off"
                 type="text"
-                value={newComment.image}
+                value={newComment.CommentImage}
                 name="image"
                 placeholder="URL"
                 onChange={handleChange}
@@ -104,20 +105,20 @@ const Comments = () => {
             </div>
           </form>
         </section>
-        <section>
+        <section className="returnSection">
           {comment?.map((comment) => {
             return (
               <div key={comment._id}>
                 {/* <Link to={`/tweet/${comment._id}`}>
-                  <h1 className="tweetName">{comment.CommentName}</h1>
+                  <h1 className="tweetName">{tweet.name}</h1>
                 </Link> */}
-                <h3>{comment.title}</h3>
+                <h3>{comment.CommentTitle}</h3>
                 <img
-                  src={comment.image}
+                  src={comment.CommentImage}
                   alt=""
                   width={200}
                 />
-                 <h2>{comment.createdAt}</h2> 
+                <h2>{comment.createdAt}</h2>
               </div>
             );
           })}
