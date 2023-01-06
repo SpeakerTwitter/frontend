@@ -69,10 +69,11 @@ const Tweet = (props) => {
     return (
       <div className="home">
         <section className="FormBlock">
-          <img src="https://img.icons8.com/color/512/test-account.png" />
+          
 
           <form className="form" onSubmit={handleSubmit}>
-            <label>
+            <label className="tweet">
+              <img src="https://img.icons8.com/color/512/test-account.png" />
               <input
                 className="person"
                 autoComplete="off"
