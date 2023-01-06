@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useParams, useNavigate } from "react-router-dom";
+import Comments from "../components/Comments/Comments";
+
 const Show = (props) => {
   //set state for person details
   const [tweet, setTweet] = useState(null);
@@ -60,7 +62,7 @@ const Show = (props) => {
       console.log(err);
       navigate(URL);
     }
-  };
+  }
   useEffect(() => {
     getTweet();
   }, []); // fetch person detail on MOUNT()
@@ -74,13 +76,13 @@ const Show = (props) => {
               <div className="tweetDeleteHeader">
                 <img src="https://img.icons8.com/color/512/test-account.png" />
                 <div className="nameAndDelete">
-                <h2 className="showName">{tweet.name}</h2>
-                <img
-                  className="delete"
-                  src="https://img.icons8.com/ios/512/delete-sign.png"
-                  alt="delete"
-                  onClick={removeTweet}
-                />
+                  <h2 className="showName">{tweet.name}</h2>
+                  <img
+                    className="delete"
+                    src="https://img.icons8.com/ios/512/delete-sign.png"
+                    alt="delete"
+                    onClick={removeTweet}
+                  />
                 </div>
               </div>
               <h2 className="showTweet">{tweet.title}</h2>
@@ -123,10 +125,11 @@ const Show = (props) => {
             <input type="submit" value="Update Tweet" />
           </form>
         </section>
+        <Comments />
       </div>
     );
   };
-  // Loading
+
   const loading = () => {
     return (
       <section className="loading">
