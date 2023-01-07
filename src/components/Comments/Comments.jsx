@@ -1,33 +1,33 @@
-import React from 'react'
+import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Comments = () => {
-    const [comment, setComment]=useState([])
-    const [newComment, setNewComment]=useState({
-        name: "",
-        title: "",
-        image: "",
-    })
+  const [comment, setComment] = useState([]);
+  const [newComment, setNewComment] = useState({
+    name: "",
+    title: "",
+    image: "",
+  });
 
-    // API URL
+  // API URL
   const BASE_URL = "http://localhost:4000/tweets";
   // Use comment function to call in useEffect
   const getComment = async () => {
     try {
       const res = await fetch(BASE_URL);
-    //   console.log(res);
+      //   console.log(res);
       const allComments = await res.json();
       setComment(allComments);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   //Handlers
   const handleChange = (e) => {
     setNewComment({ ...newComment, [e.target.name]: e.target.value });
-  }
+  };
   const handleSubmit = async (e) => {
     // 0. prevent default (event object method)
     e.preventDefault();
@@ -69,7 +69,6 @@ const Comments = () => {
         <section>
           <form className="commentForm" onSubmit={handleSubmit}>
             <label>
-              <img src="https://img.icons8.com/color/512/test-account.png" />
               <input
                 autoComplete="off"
                 type="text"
@@ -108,12 +107,17 @@ const Comments = () => {
         <section className="returnSection">
           {comment?.map((comment) => {
             return (
-              <div key={comment._id}>
+              <div className="commentDivs" key={comment._id}>
                 {/* <Link to={`/tweet/${comment._id}`}>
                   <h1 className="tweetName">{tweet.name}</h1>
                 </Link> */}
+                <div className="tweet">
+                  <img src="https://img.icons8.com/color/512/test-account.png" />
+                  <h3>{comment.name}</h3>
+                </div>
                 <h3>{comment.title}</h3>
                 <img
+                  className="tweetImage"
                   src={comment.image}
                   alt=""
                   width={200}
@@ -148,10 +152,9 @@ const Comments = () => {
 
   return (
     <div>
-        <section>{comment ? loaded() : loading()}</section>
-
+      <section>{comment ? loaded() : loading()}</section>
     </div>
-  )
-}
+  );
+};
 
-export default Comments
+export default Comments;

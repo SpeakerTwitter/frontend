@@ -10,7 +10,6 @@
 .clickedTweet{
     width: 500px;
     border: solid 1px rgba(0, 0, 0, 0.4);
-    border-top: transparent;
     padding: 5px;
     display: block;
     margin: 0 auto;
@@ -21,6 +20,9 @@
     width: 20px;
     height: 20px;
     text-align: end;
+}
+.delete:hover{
+    cursor: pointer;
 }
 .updateFormSection{
     display: flex;
@@ -39,7 +41,10 @@
     flex-direction: column;
     width: 500px
 }
-
+.tweetDeleteHeader{
+        display:flex;
+    justify-content: space-between;
+}
 .nameAndDelete{
     display:flex;
     justify-content: space-between;
@@ -49,7 +54,7 @@
     color: black;
     font-weight: 800;
     margin: 0;
-    text-align: right;
+    
 }
 .commentForm{
     display: flex;
