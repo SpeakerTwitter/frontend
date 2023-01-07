@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Tweet.css";
-import "./Tweet-List.css"
+// import "./Tweet-List.css"
 
 const Tweet = (props) => {
   const [tweet, setTweet] = useState([]);

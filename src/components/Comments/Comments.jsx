@@ -109,8 +109,8 @@ const Comments = () => {
           {comment?.map((comment) => {
             return (
               <div key={comment._id}>
-                {/* <Link to={`/tweet/${._id}`}>
-                  <h1 className="tweetName">{comment.CommentName}</h1>
+                {/* <Link to={`/tweet/${comment._id}`}>
+                  <h1 className="tweetName">{tweet.name}</h1>
                 </Link> */}
                 <h3>{comment.title}</h3>
                 <img
