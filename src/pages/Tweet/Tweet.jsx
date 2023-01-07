@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Tweet.css";
-// import "./Tweet-List.css"
+import "./Tweet-List.css";
 
 const Tweet = (props) => {
   const [tweet, setTweet] = useState([]);
@@ -75,7 +75,10 @@ const Tweet = (props) => {
         <section className="FormBlock">
           <form className="form" onSubmit={handleSubmit}>
             <label className="tweet">
-              <img src="https://img.icons8.com/color/512/test-account.png" />
+              <img
+                className="emptyProfile"
+                src="https://img.icons8.com/color/512/test-account.png"
+              />
               <input
                 className="person"
                 autoComplete="off"
@@ -113,15 +116,20 @@ const Tweet = (props) => {
               <p> {`Count: ${textAreaCount}`} </p>
               <input className="TweetButton" type="submit" value="Tweet" />
             </div>
-          </form>
+
+          </form>            
         </section>
+              <h6 className="seeTweets">Show All Tweets</h6>
 
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
             return (
               <div key={tweet._id} className="tweet-card">
                 <div className="tweet">
-                  <img src="https://img.icons8.com/color/512/test-account.png" />
+                  <img
+                    className="emptyProfile"
+                    src="https://img.icons8.com/color/512/test-account.png"
+                  />
                   <Link to={`/tweet/${tweet._id}`}>
                     <h1 className="person">{tweet.name}</h1>
                   </Link>

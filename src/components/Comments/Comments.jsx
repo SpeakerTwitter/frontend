@@ -67,7 +67,7 @@ const Comments = () => {
     return (
       <div>
         <section>
-          <form onSubmit={handleSubmit}>
+          <form className="commentForm" onSubmit={handleSubmit}>
             <label>
               <img src="https://img.icons8.com/color/512/test-account.png" />
               <input
@@ -118,7 +118,7 @@ const Comments = () => {
                   alt=""
                   width={200}
                 />
-                <h2>{comment.createdAt}</h2>
+                {/* <h2>{comment.createdAt}</h2> */}
               </div>
             );
           })}

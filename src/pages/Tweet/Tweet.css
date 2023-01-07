@@ -1,16 +1,19 @@
+
+.tweet{
+    display: flex;
+    position:fixed sticky;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;    
+    justify-content: center;
+
+}
 .clickedTweet{
     width: 500px;
     border: solid 1px rgba(0, 0, 0, 0.4);
     border-top: transparent;
     padding: 5px;
-
-}
-.tweet{
-    display: flex;
-    justify-content: center;
-    position:fixed sticky;
-    width: 100%;
-    font-family: 'Noto Sans JP', sans-serif;
+    display: block;
+    margin: 0 auto;
 }
 .delete{
     display: flex;
@@ -26,9 +29,11 @@
     border-top: transparent;
     padding: 5px;
 }
+
 .updateForm{
     flex-direction: column;
     width: 500px;
+
 }
 .updateImage, .updateTweet, .updateName{
     flex-direction: column;
@@ -45,4 +50,8 @@
     font-weight: 800;
     margin: 0;
     text-align: right;
+}
+.commentForm{
+    display: flex;
+    justify-content: center;
 }
