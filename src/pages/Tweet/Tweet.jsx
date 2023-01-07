@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Tweet.css";
 const Tweet = (props) => {
   const [tweet, setTweet] = useState([]);
+  const [textAreaCount, settextAreaCount] = useState(0);
   const [newForm, setNewForm] = useState({
     name: "",
     title: "",
@@ -25,10 +26,12 @@ const Tweet = (props) => {
   // Handlers
   const handleChange = (e) => {
     setNewForm({ ...newForm, [e.target.name]: e.target.value });
+    let textAreaCount = settextAreaCount(e.target.value.length);
   };
   const handleSubmit = async (e) => {
     // 0. prevent default (event object method)
     e.preventDefault();
+
     // 1. capturing our local state
     const currentState = { ...newForm };
     // check any fields for property data types / truthy value (function call - stretch)
@@ -60,16 +63,10 @@ const Tweet = (props) => {
       console.log(err);
     }
   };
-  function countChars(obj){
-    var maxLength = 20;
-    var strLength = obj.value.length;
-    
-    if(strLength > maxLength){
-        document.getElementById("charNum").innerHTML = '<span style="color: red;">'+strLength+' out of '+maxLength+' characters</span>';
-    }else{
-        document.getElementById("charNum").innerHTML = strLength+' out of '+maxLength+' characters';
-    }
-}
+  // const recalculate = (e) => {
+  //   let textAreaCount = settextAreaCount(e.target.value.length);
+  //   console.log(textAreaCount);
+  // };
 
   const loaded = () => {
     return (
@@ -78,6 +75,7 @@ const Tweet = (props) => {
           <form className="form" onSubmit={handleSubmit}>
             <label className="tweet">
               <img src="https://img.icons8.com/color/512/test-account.png" />
+              <p> {`Count: ${textAreaCount}`} </p>
               <input
                 className="person"
                 autoComplete="off"
@@ -90,15 +88,14 @@ const Tweet = (props) => {
             </label>
             <label>
               <textarea
+                onChange={handleChange}
                 className="TheTweet"
                 autoComplete="off"
                 type="text"
                 value={newForm.title}
                 name="title"
-                onKeyUp="countChars(obj)"
                 placeholder="What's happening?"
                 maxLength="200"
-                onChange={handleChange}
               />
             </label>
             <label>
@@ -117,8 +114,6 @@ const Tweet = (props) => {
             </div>
           </form>
         </section>
-        <textarea name="message" onkeyup="countChars(this);"></textarea>
-        <p id="charNum">0 characters</p>
 
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
