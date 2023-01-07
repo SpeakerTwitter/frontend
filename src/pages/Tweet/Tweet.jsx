@@ -2,8 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Tweet.css";
+import "./Tweet-List.css";
+
 const Tweet = (props) => {
   const [tweet, setTweet] = useState([]);
+  const [textAreaCount, settextAreaCount] = useState(0);
   const [newForm, setNewForm] = useState({
     name: "",
     title: "",
@@ -29,6 +32,7 @@ const Tweet = (props) => {
   const handleSubmit = async (e) => {
     // 0. prevent default (event object method)
     e.preventDefault();
+
     // 1. capturing our local state
     const currentState = { ...newForm };
     // check any fields for property data types / truthy value (function call - stretch)
@@ -60,16 +64,10 @@ const Tweet = (props) => {
       console.log(err);
     }
   };
-  function countChars(obj){
-    var maxLength = 20;
-    var strLength = obj.value.length;
-    
-    if(strLength > maxLength){
-        document.getElementById("charNum").innerHTML = '<span style="color: red;">'+strLength+' out of '+maxLength+' characters</span>';
-    }else{
-        document.getElementById("charNum").innerHTML = strLength+' out of '+maxLength+' characters';
-    }
-}
+  // const recalculate = (e) => {
+  //   let textAreaCount = settextAreaCount(e.target.value.length);
+  //   console.log(textAreaCount);
+  // };
 
   const loaded = () => {
     return (
@@ -77,7 +75,10 @@ const Tweet = (props) => {
         <section className="FormBlock">
           <form className="form" onSubmit={handleSubmit}>
             <label className="tweet">
-              <img src="https://img.icons8.com/color/512/test-account.png" />
+              <img
+                className="emptyProfile"
+                src="https://img.icons8.com/color/512/test-account.png"
+              />
               <input
                 className="person"
                 autoComplete="off"
@@ -90,15 +91,14 @@ const Tweet = (props) => {
             </label>
             <label>
               <textarea
+                onChange={handleChange}
                 className="TheTweet"
                 autoComplete="off"
                 type="text"
                 value={newForm.title}
                 name="title"
-                onKeyUp="countChars(obj)"
                 placeholder="What's happening?"
-                maxLength="200"
-                onChange={handleChange}
+                // maxLength="200"
               />
             </label>
             <label>
@@ -113,20 +113,28 @@ const Tweet = (props) => {
               />
             </label>
             <div className="buttonDiv">
+              <p> {`Count: ${textAreaCount}`} </p>
               <input className="TweetButton" type="submit" value="Tweet" />
             </div>
-          </form>
+
+          </form>            
         </section>
-        <textarea name="message" onkeyup="countChars(this);"></textarea>
-        <p id="charNum">0 characters</p>
+              <h6 className="seeTweets">Show All Tweets</h6>
 
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
             return (
               <div key={tweet._id} className="tweet-card">
-                <Link to={`/tweet/${tweet._id}`}>
-                  <h1 className="tweetName">{tweet.name}</h1>
-                </Link>
+                <div className="tweet">
+                  <img
+                    className="emptyProfile"
+                    src="https://img.icons8.com/color/512/test-account.png"
+                  />
+                  <Link to={`/tweet/${tweet._id}`}>
+                    <h1 className="person">{tweet.name}</h1>
+                  </Link>
+                </div>
+
                 <h3 className="tweetTitle">{tweet.title}</h3>
                 <img
                   className="tweetImage"
@@ -134,7 +142,7 @@ const Tweet = (props) => {
                   alt=""
                   width={200}
                 />
-                <h2>{tweet.createdAt}</h2>
+                <p>Time: {tweet.createdAt}</p>
               </div>
             );
           })}

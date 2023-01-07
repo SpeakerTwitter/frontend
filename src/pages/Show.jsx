@@ -87,7 +87,7 @@ const Show = (props) => {
               </div>
               <h2 className="showTweet">{tweet.title}</h2>
               <img
-                className="showImage"
+                className="tweetImage"
                 src={tweet.image}
                 alt={tweet.image}
                 width={400}
