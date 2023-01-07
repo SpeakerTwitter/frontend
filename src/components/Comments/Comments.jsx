@@ -101,7 +101,7 @@ const Comments = () => {
               />
             </label>
             <div>
-              <input type="submit" value="Tweet" />
+              <input type="submit" value="Comment" />
             </div>
           </form>
         </section>
@@ -112,9 +112,9 @@ const Comments = () => {
                 {/* <Link to={`/tweet/${comment._id}`}>
                   <h1 className="tweetName">{tweet.name}</h1>
                 </Link> */}
-                <h3>{comment.CommentTitle}</h3>
+                <h3>{comment.title}</h3>
                 <img
-                  src={comment.CommentImage}
+                  src={comment.image}
                   alt=""
                   width={200}
                 />
