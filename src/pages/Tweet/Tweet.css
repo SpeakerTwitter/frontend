@@ -42,12 +42,13 @@
     width: 500px
 }
 .tweetDeleteHeader{
-        display:flex;
+    display:flex;
     justify-content: space-between;
 }
 .nameAndDelete{
     display:flex;
     justify-content: space-between;
+    width: 100%
 }
 .showName{
     font-size: 18px;
@@ -59,4 +60,12 @@
 .commentForm{
     display: flex;
     justify-content: center;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
+.showTweet{
+    font-weight: 400;
 }

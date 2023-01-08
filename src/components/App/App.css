@@ -50,7 +50,7 @@ h1.homeLink {
   color: black;
 }
 
-.seeTweets{
+.seeTweets, .replyingTo, .footer{
   height: 40px;
   display: block;
 text-align: center;
@@ -75,7 +75,6 @@ font-size: small;
   flex-direction: column;
   border: transparent;
   font-size: 24px;
-  background-color: white;
   font-family: "Noto Sans JP", sans-serif;
   outline: none;
   width: 100%;
@@ -95,7 +94,7 @@ font-size: small;
   justify-content: space-between;
 }
 
-.TweetButton {
+.TweetButton{
   background-color: rgb(109, 194, 248);
   border: none;
   color: white;
@@ -123,6 +122,9 @@ font-size: small;
     transform: rotateX(180deg);
   }
 }
+.tweet-card:hover{    
+  background-color: rgba(148, 148, 148, 0.133);
+}
 
 .tweetCardList, .returnSection {
   display: flex;
@@ -144,16 +146,17 @@ h1.tweetName {
   width: 80%;
   display: block;
   margin: 0 auto;
-  border-radius: 15px;;
+  border-radius: 15px;
+  margin-bottom: 50px
 }
 div.tweet{
   display: flex;
   justify-content: flex-start;
 }
+
+.footer{
+  color:black;
+}
 .tweetTitle{
-  display: flex;
-    font-size: 18px;
-    background-color: white;
-    outline: none;
-    width: 100%;
+  font-weight: 400;
 }

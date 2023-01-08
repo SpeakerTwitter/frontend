@@ -8,6 +8,7 @@ function App() {
    <div className='App'>
        <Header />
        <Main />
+       <h1 className="footer">Return to Top of Page</h1>
    </div>
  );
 }
