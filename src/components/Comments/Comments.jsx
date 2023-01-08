@@ -111,13 +111,13 @@ const Comments = () => {
                 {/* <Link to={`/tweet/${comment._id}`}>
                   <h1 className="tweetName">{tweet.name}</h1>
                 </Link> */}
-                <h3>{comment.CommentTitle}</h3>
+                <h3>{comment.CommentName}</h3>
                 <img
                   src={comment.CommentImage}
                   alt=""
                   width={200}
                 />
-                <h2>{comment.createdAt}</h2>
+                {/* <h2>{comment.createdAt}</h2> */}
               </div>
             );
           })}
