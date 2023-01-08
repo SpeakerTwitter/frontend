@@ -9,3 +9,74 @@
     width: 500px;
 
 }
+.commentDivs:hover{
+  background-color: rgba(148, 148, 148, 0.133);
+}
+.commentFormSection{
+    width: 500px;
+    padding: 5px;
+    border: .5px solid black;
+    display: block;
+    margin: 0 auto;
+    height: 120px;
+}
+.commentInputFields{
+    display: flex;
+    flex-direction: column;
+}
+.commentForm{
+    display: flex;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;    
+    justify-content: flex-start;
+}
+.commentButtonDiv{
+    width: 100%
+}
+.CommentButton{
+    background-color: rgb(109, 194, 248);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 40px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    float: right;
+    
+}
+.commentInput{
+    border: transparent;
+    background-color: white;
+    outline: none;
+    width: 300px;
+}
+.commentListTweet{
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 0;
+    margin-left: 70px;
+}
+.commentName{
+    font-size: 16px;
+    color: black;
+    font-weight: 800;
+}
+.CommentButton:focus {
+    animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      both;
+    animation-duration: 1s;
+  }
+  
+  @keyframes flip-horizontal-bottom {
+    0% {
+      transform: rotateX(0);
+    }
+    50% {
+      transform: rotateX(-180deg);
+    }
+    50% {
+      transform: rotateX(180deg);
+    }
+  }

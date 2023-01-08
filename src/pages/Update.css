@@ -1,0 +1,7 @@
+.updateName, .updateImage, .updateTweet{
+    border: transparent;
+    background-color: white;
+    outline: none;
+    width: 100%;
+}
+

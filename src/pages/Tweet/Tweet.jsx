@@ -142,7 +142,7 @@ const Tweet = (props) => {
                   alt=""
                   width={200}
                 />
-                <p>Time: {tweet.createdAt}</p>
+                <p>Time: {tweet.date}</p>
               </div>
             );
           })}

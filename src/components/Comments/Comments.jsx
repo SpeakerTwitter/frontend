@@ -11,6 +11,7 @@ const Comments = () => {
   });
 
   // API URL
+  //TODO would this be                    /comments/${id}
   const BASE_URL = "http://localhost:4000/comments";
   // Use comment function to call in useEffect
   const getComment = async () => {
@@ -65,57 +66,69 @@ const Comments = () => {
 
   const loaded = () => {
     return (
-      <div>
-        <section>
+      <div>          
+
+        <section className="commentFormSection">
+                      {/* <img src="https://img.icons8.com/color/512/test-account.png" /> */}
+
           <form className="commentForm" onSubmit={handleSubmit}>
-            <label>
-              <input
-                autoComplete="off"
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={newComment.CommentName}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <input
-                autoComplete="off"
-                type="text"
-                value={newComment.CommentTitle}
-                name="title"
-                placeholder="What's happening?"
-                maxLength="55"
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <input
-                autoComplete="off"
-                type="text"
-                value={newComment.CommentImage}
-                name="image"
-                placeholder="URL"
-                onChange={handleChange}
-              />
-            </label>
-            <div>
-              <input type="submit" value="Comment" />
+            {/* <h6>Replying to</h6> */}
+            <div className="commentInputFields"> 
+
+              <label>
+                <input
+                  className="commentInput commentName"
+                  autoComplete="off"
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={newComment.CommentName}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                <input
+                  className="commentInput commentTweet"
+                  autoComplete="off"
+                  type="text"
+                  value={newComment.CommentTitle}
+                  name="title"
+                  placeholder="Tweet your reply"
+                  maxLength="55"
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                <input
+                  className="commentInput commentURL"
+                  autoComplete="off"
+                  type="text"
+                  value={newComment.CommentImage}
+                  name="image"
+                  placeholder="URL"
+                  onChange={handleChange}
+                />
+              </label>
             </div>
+          <div className="commentButtonDiv">
+            <input className="CommentButton" type="submit" value="Reply" />
+          </div>
           </form>
+
         </section>
         <section className="returnSection">
           {comment?.map((comment) => {
             return (
               <div className="commentDivs" key={comment._id}>
-                {/* <Link to={`/tweet/${comment._id}`}>
-                  <h1 className="tweetName">{tweet.name}</h1>
+                {/* what does this link do?  */}
+                {/* <Link to={`/tweets/${comment._id}`}>
+                  <h1 className="tweetName">{comment._id}</h1>
                 </Link> */}
                 <div className="tweet">
                   <img src="https://img.icons8.com/color/512/test-account.png" />
-                  <h3>{comment.name}</h3>
+                  <h3 className="commentName">{comment.name}</h3>
                 </div>
-                <h3>{comment.title}</h3>
+                <h3 className="commentListTweet">{comment.title}</h3>
                 <img
                   className="tweetImage"
                   src={comment.image}

@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useParams, useNavigate } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
+import "./Update.css";
 
 const Show = (props) => {
   //set state for person details
@@ -62,7 +63,7 @@ const Show = (props) => {
       console.log(err);
       navigate(URL);
     }
-  }
+  };
   useEffect(() => {
     getTweet();
   }, []); // fetch person detail on MOUNT()
@@ -99,6 +100,7 @@ const Show = (props) => {
           <form className="updateForm" onSubmit={updatedTweet}>
             <input
               type="text"
+              autoComplete="off"
               className="updateName"
               value={editForm.name}
               name="name"
@@ -108,6 +110,7 @@ const Show = (props) => {
             />
             <input
               type="text"
+              autoComplete="off"
               className="updateImage"
               value={editForm.image}
               name="image"
@@ -116,15 +119,17 @@ const Show = (props) => {
             />
             <input
               type="text"
+              autoComplete="off"
               className="updateTweet"
               value={editForm.title}
               name="title"
               placeholder="title"
               onChange={handleChange}
             />
-            <input type="submit" value="Update Tweet" />
+            <input type="submit" value="Update" />
           </form>
-        </section>
+        </section>{" "}
+        <h6 className="replyingTo">See All Replies</h6>
         <Comments />
       </div>
     );
