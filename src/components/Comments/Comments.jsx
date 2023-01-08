@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Comments = () => {
-    const [comment, setComment]=useState([])
-    const [newComment, setNewComment]=useState({
-        name: "",
-        title: "",
-        image: "",
-    })
+  const [comment, setComment] = useState([]);
+  const [newComment, setNewComment] = useState({
+    name: "",
+    title: "",
+    image: "",
+  });
 
   // API URL
   const BASE_URL = "http://localhost:4000/comments";
@@ -54,9 +54,9 @@ const Comments = () => {
       setComment([...comment, createdComment]);
       // reset newForm state so that our form empties out
       setNewComment({
-        CommentName: "",
-        CommentTitle: "",
-        CommentImage: "",
+        name: "",
+        title: "",
+        image: "",
       });
     } catch (err) {
       console.log(err);
@@ -72,7 +72,7 @@ const Comments = () => {
               <input
                 autoComplete="off"
                 type="text"
-                name="CommentName"
+                name="name"
                 placeholder="Name"
                 value={newComment.CommentName}
                 onChange={handleChange}
@@ -83,7 +83,7 @@ const Comments = () => {
                 autoComplete="off"
                 type="text"
                 value={newComment.CommentTitle}
-                name="CommentTitle"
+                name="title"
                 placeholder="What's happening?"
                 maxLength="55"
                 onChange={handleChange}
@@ -94,13 +94,13 @@ const Comments = () => {
                 autoComplete="off"
                 type="text"
                 value={newComment.CommentImage}
-                name="CommentImage"
+                name="image"
                 placeholder="URL"
                 onChange={handleChange}
               />
             </label>
             <div>
-              <input type="submit" value="Tweet" />
+              <input type="submit" value="Comment" />
             </div>
           </form>
         </section>
@@ -111,9 +111,14 @@ const Comments = () => {
                 {/* <Link to={`/tweet/${comment._id}`}>
                   <h1 className="tweetName">{tweet.name}</h1>
                 </Link> */}
-                <h3>{comment.CommentName}</h3>
+                <div className="tweet">
+                  <img src="https://img.icons8.com/color/512/test-account.png" />
+                  <h3>{comment.name}</h3>
+                </div>
+                <h3>{comment.title}</h3>
                 <img
-                  src={comment.CommentImage}
+                  className="tweetImage"
+                  src={comment.image}
                   alt=""
                   width={200}
                 />

@@ -32,12 +32,12 @@ const Show = (props) => {
     // make put request to update a person
     try {
       const options =
-        // configure put request
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(editForm),
-        };
+      // configure put request
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(editForm),
+      };
       const response = await fetch(URL, options);
       const updatedTweet = await response.json();
       setTweet(updatedTweet);
@@ -50,10 +50,10 @@ const Show = (props) => {
   const removeTweet = async (e) => {
     try {
       const options =
-        // configure delete request
-        {
-          method: "DELETE",
-        };
+      // configure delete request
+      {
+        method: "DELETE",
+      };
       const response = await fetch(URL, options);
       const deletedTweet = await response.json();
       // console.log(deletedPerson);
