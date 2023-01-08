@@ -11,7 +11,7 @@ const Comments = () => {
     })
 
   // API URL
-  const BASE_URL = "http://localhost:4000/tweets";
+  const BASE_URL = "http://localhost:4000/comments";
   // Use comment function to call in useEffect
   const getComment = async () => {
     try {
