@@ -11,6 +11,7 @@
 }
 .commentDivs:hover{
   background-color: rgba(148, 148, 148, 0.133);
+  cursor: pointer;
 }
 .commentFormSection{
     width: 500px;
@@ -44,7 +45,6 @@
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 700;
     float: right;
-    
 }
 .commentInput{
     border: transparent;

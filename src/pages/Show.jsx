@@ -126,9 +126,9 @@ const Show = (props) => {
               placeholder="title"
               onChange={handleChange}
             />
-            <input type="submit" value="Update" />
+            <input className="updateButton" type="submit" value="Update" />
           </form>
-        </section>{" "}
+        </section>
         <h6 className="replyingTo">See All Replies</h6>
         <Comments />
       </div>

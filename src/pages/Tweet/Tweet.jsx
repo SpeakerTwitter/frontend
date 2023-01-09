@@ -6,7 +6,6 @@ import "./Tweet-List.css";
 
 const Tweet = (props) => {
   const [tweet, setTweet] = useState([]);
-  const [textAreaCount, settextAreaCount] = useState(0);
   const [newForm, setNewForm] = useState({
     name: "",
     title: "",
@@ -29,6 +28,18 @@ const Tweet = (props) => {
   const handleChange = (e) => {
     setNewForm({ ...newForm, [e.target.name]: e.target.value });
   };
+
+  const handleCount = (e) => {
+    let textarea = document.querySelector("textarea");
+    textarea.addEventListener("input", ({ currentTarget: target }) => {
+      const maxLength = 500
+      const currentLength = e.value.length;
+      if (currentLength >= maxLength) {
+        return console.log("You have reached the maximum number of characters.");
+      }
+    });
+  }
+
   const handleSubmit = async (e) => {
     // 0. prevent default (event object method)
     e.preventDefault();
@@ -63,11 +74,13 @@ const Tweet = (props) => {
     } catch (err) {
       console.log(err);
     }
-  };
-  // const recalculate = (e) => {
-  //   let textAreaCount = settextAreaCount(e.target.value.length);
-  //   console.log(textAreaCount);
-  // };
+  }
+
+
+  const [count, setCount] = useState(0);
+
+  
+
 
   const loaded = () => {
     return (
@@ -98,7 +111,8 @@ const Tweet = (props) => {
                 value={newForm.title}
                 name="title"
                 placeholder="What's happening?"
-                // maxLength="200"
+                maxLength="200"
+                onKeyUp={e => setCount(e.target.value.length)}
               />
             </label>
             <label>
@@ -113,9 +127,13 @@ const Tweet = (props) => {
               />
             </label>
             <div className="buttonDiv">
-              <p> {`Count: ${textAreaCount}`} </p>
               <input className="TweetButton" type="submit" value="Tweet" />
             </div>
+            <p>{count}</p>
+
+
+
+
 
           </form>            
         </section>

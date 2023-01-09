@@ -124,6 +124,7 @@ font-size: small;
 }
 .tweet-card:hover{    
   background-color: rgba(148, 148, 148, 0.133);
+  cursor: pointer;
 }
 
 .tweetCardList, .returnSection {

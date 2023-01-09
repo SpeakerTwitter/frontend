@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <a name="top"></a>
-
       <Main />
       <a className="footer" href="#top">
         Back to top
