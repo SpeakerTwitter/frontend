@@ -16,11 +16,11 @@ const Comments = (props) => {
   console.log(props.tweets.comments)
   const {id} = useParams();
 
-  const URL = `http://localhost:4000/tweet/${id}`
+  const URL = `http://localhost:4000/comments/${id}`
 
   const getComment = async () => {
     try {
-      const res = await fetch(URL);
+      const res = await fetch(props);
       const allComments = await res.json();
       setComment(allComments);
     } catch (err) {
