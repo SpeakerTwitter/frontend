@@ -6,6 +6,7 @@ import "./Tweet-List.css";
 
 const Tweet = (props) => {
   const [tweet, setTweet] = useState([]);
+  const [count, setCount] = useState(0);
   const [newForm, setNewForm] = useState({
     name: "",
     title: "",
@@ -32,13 +33,15 @@ const Tweet = (props) => {
   const handleCount = (e) => {
     let textarea = document.querySelector("textarea");
     textarea.addEventListener("input", ({ currentTarget: target }) => {
-      const maxLength = 500
+      const maxLength = 500;
       const currentLength = e.value.length;
       if (currentLength >= maxLength) {
-        return console.log("You have reached the maximum number of characters.");
+        return console.log(
+          "You have reached the maximum number of characters."
+        );
       }
     });
-  }
+  };
 
   const handleSubmit = async (e) => {
     // 0. prevent default (event object method)
@@ -74,14 +77,7 @@ const Tweet = (props) => {
     } catch (err) {
       console.log(err);
     }
-  }
-
-
-  const [count, setCount] = useState(0);
-
-  
-
-
+  };
   const loaded = () => {
     return (
       <div className="home">
@@ -111,10 +107,11 @@ const Tweet = (props) => {
                 value={newForm.title}
                 name="title"
                 placeholder="What's happening?"
-                maxLength="200"
-                onKeyUp={e => setCount(e.target.value.length)}
+                maxLength="15"
+                onKeyUp={(e) => setCount(e.target.value.length)}
               />
             </label>
+
             <label>
               <input
                 className="image"
@@ -127,40 +124,35 @@ const Tweet = (props) => {
               />
             </label>
             <div className="buttonDiv">
+              <p className="tweetCharCount">{count}/300</p>
               <input className="TweetButton" type="submit" value="Tweet" />
             </div>
-            <p>{count}</p>
-
-
-
-
-
-          </form>            
+          </form>
         </section>
-              <h6 className="seeTweets">Show All Tweets</h6>
+        <h6 className="seeTweets">Show All Tweets</h6>
 
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
             return (
               <div key={tweet._id} className="tweet-card">
+                <img
+                  className="emptyProfile"
+                  src="https://img.icons8.com/color/512/test-account.png"
+                />
                 <div className="tweet">
-                  <img
-                    className="emptyProfile"
-                    src="https://img.icons8.com/color/512/test-account.png"
-                  />
-                  <Link to={`/tweet/${tweet._id}`}>
-                    <h1 className="person">{tweet.name}</h1>
-                  </Link>
+                  <div className="tweetCardInfo">
+                    <Link to={`/tweet/${tweet._id}`}>
+                      <h1 className="tweetCardPerson">{tweet.name}</h1>
+                    </Link>
+                    <h3 className="tweetCardTitle">{tweet.title}</h3>
+                  </div>
                 </div>
-
-                <h3 className="tweetTitle">{tweet.title}</h3>
                 <img
                   className="tweetImage"
                   src={tweet.image}
                   alt=""
                   width={200}
                 />
-                <p>Time: {tweet.date}</p>
               </div>
             );
           })}

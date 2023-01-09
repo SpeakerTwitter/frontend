@@ -7,7 +7,9 @@ import "./Update.css";
 const Show = (props) => {
   //set state for person details
   const [tweet, setTweet] = useState(null);
-  const [editForm, setEditForm] = useState(tweet);
+  const [editForm, setEditForm] = useState("")
+  const [count, setCount] = useState(0);
+
   // take in the ID parameter from router
   const { id } = useParams();
   const navigate = useNavigate();
@@ -63,7 +65,8 @@ const Show = (props) => {
       console.log(err);
       navigate(URL);
     }
-  };
+  }
+
   useEffect(() => {
     getTweet();
   }, []); // fetch person detail on MOUNT()
@@ -106,7 +109,6 @@ const Show = (props) => {
               name="name"
               placeholder="name"
               onChange={handleChange}
-              classN
             />
             <input
               type="text"
@@ -117,7 +119,7 @@ const Show = (props) => {
               placeholder="image URL"
               onChange={handleChange}
             />
-            <input
+            <textarea
               type="text"
               autoComplete="off"
               className="updateTweet"
@@ -125,8 +127,10 @@ const Show = (props) => {
               name="title"
               placeholder="title"
               onChange={handleChange}
+              onKeyUp={e => setCount(e.target.value.length)}
             />
             <input className="updateButton" type="submit" value="Update" />
+            <p>{count}</p>
           </form>
         </section>
         <h6 className="replyingTo">See All Replies</h6>

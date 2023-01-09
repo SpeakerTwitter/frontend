@@ -10,10 +10,7 @@ const Comments = () => {
     image: "",
   });
 
-  // API URL
-  //TODO would this be                    /comments/${id}
-  const BASE_URL = "http://localhost:4000/comments";
-  // Use comment function to call in useEffect
+ // Use comment function to call in useEffect
   const getComment = async () => {
     try {
       const res = await fetch(BASE_URL);
@@ -64,6 +61,9 @@ const Comments = () => {
     }
   };
 
+  const [count, setCount] = useState(0);
+
+
   const loaded = () => {
     return (
       <div>          
@@ -87,15 +87,16 @@ const Comments = () => {
                 />
               </label>
               <label>
-                <input
+                <textarea
                   className="commentInput commentTweet"
                   autoComplete="off"
                   type="text"
                   value={newComment.CommentTitle}
                   name="title"
                   placeholder="Tweet your reply"
-                  maxLength="55"
+                  maxLength="200"
                   onChange={handleChange}
+                  onKeyUp={e => setCount(e.target.value.length)}
                 />
               </label>
               <label>
@@ -110,6 +111,8 @@ const Comments = () => {
                 />
               </label>
             </div>
+            <p>{count}</p>
+
           <div className="commentButtonDiv">
             <input className="CommentButton" type="submit" value="Reply" />
           </div>
@@ -120,10 +123,6 @@ const Comments = () => {
           {comment?.map((comment) => {
             return (
               <div className="commentDivs" key={comment._id}>
-                {/* what does this link do?  */}
-                {/* <Link to={`/tweets/${comment._id}`}>
-                  <h1 className="tweetName">{comment._id}</h1>
-                </Link> */}
                 <div className="tweet">
                   <img src="https://img.icons8.com/color/512/test-account.png" />
                   <h3 className="commentName">{comment.name}</h3>
@@ -135,7 +134,6 @@ const Comments = () => {
                   alt=""
                   width={200}
                 />
-                {/* <h2>{comment.createdAt}</h2> */}
               </div>
             );
           })}
