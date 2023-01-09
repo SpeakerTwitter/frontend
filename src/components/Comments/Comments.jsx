@@ -111,7 +111,7 @@ const Comments = (props) => {
 
         </section>
         <section className="returnSection">
-          {comment?.map((comment) => {
+          {props.tweets.comments?.map((comment) => {
             return (
               <div className="commentDivs" key={comment._id}>
                 <div className="tweet">
