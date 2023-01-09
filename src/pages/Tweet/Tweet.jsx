@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom'
 import "./Tweet.css";
 import "./Tweet-List.css";
 
@@ -30,18 +31,6 @@ const Tweet = (props) => {
     setNewForm({ ...newForm, [e.target.name]: e.target.value });
   };
 
-  const handleCount = (e) => {
-    let textarea = document.querySelector("textarea");
-    textarea.addEventListener("input", ({ currentTarget: target }) => {
-      const maxLength = 500;
-      const currentLength = e.value.length;
-      if (currentLength >= maxLength) {
-        return console.log(
-          "You have reached the maximum number of characters."
-        );
-      }
-    });
-  };
 
   const handleSubmit = async (e) => {
     // 0. prevent default (event object method)

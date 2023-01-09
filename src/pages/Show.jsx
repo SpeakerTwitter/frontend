@@ -69,8 +69,8 @@ const Show = (props) => {
 
   useEffect(() => {
     getTweet();
-  }, []); // fetch person detail on MOUNT()
-  // Person Details Loaded
+  }, [])
+
   const loaded = () => {
     return (
       <div>
@@ -134,7 +134,7 @@ const Show = (props) => {
           </form>
         </section>
         <h6 className="replyingTo">See All Replies</h6>
-        <Comments />
+        <Comments tweets={tweet} />
       </div>
     );
   };
