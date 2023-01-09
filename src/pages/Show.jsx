@@ -134,7 +134,7 @@ const Show = (props) => {
           </form>
         </section>
         <h6 className="replyingTo">See All Replies</h6>
-        <Comments tweets={tweet} />
+        <Comments />
       </div>
     );
   };

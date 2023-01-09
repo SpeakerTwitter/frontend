@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Tweet from "../../pages/Tweet/Tweet";
 
 const Comments = (props) => {  
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
   const [comment, setComment] = useState([]);
   const [newComment, setNewComment] = useState({
     name: "",
@@ -13,20 +13,22 @@ const Comments = (props) => {
     image: "",
     comment: ""
   })
-  console.log(props.tweets.comments)
+  console.log(props.tweets)
   const {id} = useParams();
 
-  const URL = `http://localhost:4000/comments/${id}`
+  const URL = `http://localhost:4000/tweets/${id}`
 
   const getComment = async () => {
     try {
-      const res = await fetch(props);
-      const allComments = await res.json();
-      setComment(allComments);
+      const res = await fetch(URL);
+      const tweet = await res.json();
+      console.log(tweet)
+      setComment(tweet.comments);
     } catch (err) {
       console.log(err);
     }
-  };
+  }
+
 
   const handleChange = (e) => {
     setNewComment({ ...newComment, [e.target.name]: e.target.value });
@@ -43,8 +45,11 @@ const Comments = (props) => {
         },
         body: JSON.stringify(currentState),
       }
+      const commentURL = `http://localhost:4000/comments/${id}`
 
-      const response = await fetch(URL, requestOptions);
+
+      const response = await fetch(commentURL, requestOptions);
+      console.log(response)
       const createdComment = await response.json();
       console.log(createdComment);
       setComment([...comment, createdComment]);
@@ -111,7 +116,7 @@ const Comments = (props) => {
 
         </section>
         <section className="returnSection">
-          {props.tweets.comments?.map((comment) => {
+          {comment?.map((comment) => {
             return (
               <div className="commentDivs" key={comment._id}>
                 <div className="tweet">
@@ -149,7 +154,7 @@ const Comments = (props) => {
 
   useEffect(() => {
     getComment();
-  }, []);
+  }, [comment.length]);
 
   return (
     <div>
