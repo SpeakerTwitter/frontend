@@ -69,8 +69,8 @@ const Show = (props) => {
 
   useEffect(() => {
     getTweet();
-  }, []); // fetch person detail on MOUNT()
-  // Person Details Loaded
+  }, [])
+
   const loaded = () => {
     return (
       <div>

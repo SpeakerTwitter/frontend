@@ -1,37 +1,42 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom'
 import { Link } from "react-router-dom";
+import Tweet from "../../pages/Tweet/Tweet";
 
-const Comments = () => {
+const Comments = (props) => {  
+  const [count, setCount] = useState(0)
   const [comment, setComment] = useState([]);
   const [newComment, setNewComment] = useState({
     name: "",
     title: "",
     image: "",
-  });
+    comment: ""
+  })
+  console.log(props.tweets)
+  const {id} = useParams();
 
- // Use comment function to call in useEffect
+  const URL = `http://localhost:4000/tweets/${id}`
+
   const getComment = async () => {
     try {
-      const res = await fetch(BASE_URL);
-      //   console.log(res);
-      const allComments = await res.json();
-      setComment(allComments);
+      const res = await fetch(URL);
+      const tweet = await res.json();
+      console.log(tweet)
+      setComment(tweet.comments);
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
-  //Handlers
+
   const handleChange = (e) => {
     setNewComment({ ...newComment, [e.target.name]: e.target.value });
-  };
+  }
+
   const handleSubmit = async (e) => {
-    // 0. prevent default (event object method)
     e.preventDefault();
-    // 1. capturing our local state
     const currentState = { ...newComment };
-    // check any fields for property data types / truthy value (function call - stretch)
     try {
       const requestOptions = {
         method: "POST",
@@ -39,18 +44,15 @@ const Comments = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(currentState),
-      };
-      // 2. specify request method , headers, Content-Type
-      // 3. make fetch to BE - sending data (requestOptions)
-      // 3a fetch sends the data to API - (mongo)
-      const response = await fetch(BASE_URL, requestOptions);
-      // 4. check our response -
-      // 5. parse the data from the response into JS (from JSON)
+      }
+      const commentURL = `http://localhost:4000/comments/${id}`
+
+
+      const response = await fetch(commentURL, requestOptions);
+      console.log(response)
       const createdComment = await response.json();
       console.log(createdComment);
-      // update local state with response (json from be)
       setComment([...comment, createdComment]);
-      // reset newForm state so that our form empties out
       setNewComment({
         name: "",
         title: "",
@@ -61,18 +63,12 @@ const Comments = () => {
     }
   };
 
-  const [count, setCount] = useState(0);
-
-
   const loaded = () => {
     return (
       <div>          
 
         <section className="commentFormSection">
-                      {/* <img src="https://img.icons8.com/color/512/test-account.png" /> */}
-
           <form className="commentForm" onSubmit={handleSubmit}>
-            {/* <h6>Replying to</h6> */}
             <div className="commentInputFields"> 
 
               <label>
@@ -142,7 +138,6 @@ const Comments = () => {
     );
   };
 
-  // Loading
   const loading = () => (
     <section className="loading">
       <h1>
@@ -159,7 +154,7 @@ const Comments = () => {
 
   useEffect(() => {
     getComment();
-  }, []);
+  }, [comment.length]);
 
   return (
     <div>
