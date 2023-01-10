@@ -113,7 +113,7 @@ const Comments = (props) => {
             return (
               <div className="commentDivs" key={comment._id}>
                 <div className="tweet">
-                  <img src="https://img.icons8.com/color/512/test-account.png" />
+                  <img src="https://img.icons8.com/ios-filled/512/user-male-circle.png" />
                   <h3 className="commentName">{comment.name}</h3>
                 </div>
                 <h3 className="commentListTweet">{comment.title}</h3>

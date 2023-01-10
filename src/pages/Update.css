@@ -19,7 +19,7 @@
 .updateImage,
 .updateTweet {
   border: transparent;
-  background-color: white;
+  background-color: transparent;
   outline: none;
   width: 100%;
 }

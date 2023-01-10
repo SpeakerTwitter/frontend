@@ -75,7 +75,7 @@ const Tweet = (props) => {
             <label className="tweet">
               <img
                 className="emptyProfile"
-                src="https://img.icons8.com/color/512/test-account.png"
+                src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
               />
               <input
                 className="person"
@@ -126,7 +126,7 @@ const Tweet = (props) => {
               <div key={tweet._id} className="tweet-card">
                 <img
                   className="emptyProfile"
-                  src="https://img.icons8.com/color/512/test-account.png"
+                  src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
                 />
                 <div className="tweet">
                   <div className="tweetCardInfo">

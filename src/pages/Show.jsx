@@ -72,7 +72,7 @@ const Show = (props) => {
           <div className="tweet">
             <section className="clickedTweet">
               <div className="tweetDeleteHeader">
-                <img src="https://img.icons8.com/color/512/test-account.png" />
+                <img src="https://img.icons8.com/ios-filled/512/user-male-circle.png" />
                 <div className="nameAndDelete">
                   <h2 className="showName">{tweet.name}</h2>
                   <img

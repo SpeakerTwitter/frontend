@@ -48,7 +48,7 @@
 }
 .commentInput{
     border: transparent;
-    background-color: white;
+    background-color: transparent;
     outline: none;
     width: 300px;
 }
