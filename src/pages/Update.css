@@ -1,0 +1,37 @@
+.updateFormSection{
+    display: flex;
+    justify-content: center;
+    border-top: transparent;
+    padding: 5px;
+}
+
+.updateForm{
+    flex-direction: column;
+    width: 500px;
+    border: 1px solid black
+}
+.updateImage, .updateTweet, .updateName{
+    flex-direction: column;
+    width: 500px
+}
+
+.updateName,
+.updateImage,
+.updateTweet {
+  border: transparent;
+  background-color: white;
+  outline: none;
+  width: 100%;
+}
+.updateButton {
+  background-color: rgb(109, 194, 248);
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 40px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  float: right;
+}
