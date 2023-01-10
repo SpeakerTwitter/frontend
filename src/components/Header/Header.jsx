@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header style={{ overflow: "hidden" }}>
       <nav className="nav">
