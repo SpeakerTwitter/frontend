@@ -75,7 +75,7 @@ const Tweet = (props) => {
             <label className="tweet">
               <img
                 className="emptyProfile"
-                src="https://img.icons8.com/color/512/test-account.png"
+                src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
               />
               <input
                 className="person"
@@ -122,17 +122,17 @@ const Tweet = (props) => {
 
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
-            return (
+            return (<Link to={`/tweet/${tweet._id}`}>
               <div key={tweet._id} className="tweet-card">
                 <img
                   className="emptyProfile"
-                  src="https://img.icons8.com/color/512/test-account.png"
+                  src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
                 />
                 <div className="tweet">
                   <div className="tweetCardInfo">
-                    <Link to={`/tweet/${tweet._id}`}>
+                    
                       <h1 className="tweetCardPerson">{tweet.name}</h1>
-                    </Link>
+
                     <h3 className="tweetCardTitle">{tweet.title}</h3>
                   </div>
                 </div>
@@ -142,7 +142,8 @@ const Tweet = (props) => {
                   alt=""
                   width={200}
                 />
-              </div>
+              </div>                    
+              </Link>
             );
           })}
         </section>

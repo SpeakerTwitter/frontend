@@ -38,7 +38,7 @@ const Show = (props) => {
       };
       const response = await fetch(URL, options);
       const updatedTweet = await response.json();
-      console.log(updatedTweet)
+      console.log(updatedTweet);
       setTweet(updatedTweet);
       // setEditForm(updatedTweet);
     } catch (err) {
@@ -48,10 +48,9 @@ const Show = (props) => {
   };
   const removeTweet = async (e) => {
     try {
-      const options =
-        {
-          method: "DELETE",
-        };
+      const options = {
+        method: "DELETE",
+      };
       const response = await fetch(URL, options);
       const deletedTweet = await response.json();
       navigate("/");
@@ -72,7 +71,7 @@ const Show = (props) => {
           <div className="tweet">
             <section className="clickedTweet">
               <div className="tweetDeleteHeader">
-                <img src="https://img.icons8.com/color/512/test-account.png" />
+                <img src="https://img.icons8.com/ios-filled/512/user-male-circle.png" />
                 <div className="nameAndDelete">
                   <h2 className="showName">{tweet.name}</h2>
                   <img
@@ -98,7 +97,7 @@ const Show = (props) => {
             <input
               type="text"
               autoComplete="off"
-              className="updateName"
+              className="commentName commentInput"
               value={editForm.name}
               name="name"
               placeholder="name"
@@ -107,7 +106,7 @@ const Show = (props) => {
             <input
               type="text"
               autoComplete="off"
-              className="updateImage"
+              className="commentInput commentTweet"
               value={editForm.image}
               name="image"
               placeholder="image URL"
@@ -116,15 +115,17 @@ const Show = (props) => {
             <textarea
               type="text"
               autoComplete="off"
-              className="updateTweet"
+              className="commentInput commentURL"
               value={editForm.title}
               name="title"
               placeholder="title"
               onChange={handleChange}
               onKeyUp={(e) => setCount(e.target.value.length)}
             />
-            <input className="updateButton" type="submit" value="Update" />
-            <p>{count}</p>
+            <div className="updateFormCounter">
+              <p className="tweetCharCount">{count}/300</p>
+              <input className="updateButton" type="submit" value="Update" />
+            </div>
           </form>
         </section>
         <h6 className="replyingTo">See All Replies</h6>
