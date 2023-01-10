@@ -1,38 +1,34 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom'
-import { Link } from "react-router-dom";
-import Tweet from "../../pages/Tweet/Tweet";
+import { useParams } from "react-router-dom";
 
-const Comments = (props) => {  
-  const [count, setCount] = useState(0)
+const Comments = (props) => {
+  const [count, setCount] = useState(0);
   const [comment, setComment] = useState([]);
   const [newComment, setNewComment] = useState({
     name: "",
     title: "",
     image: "",
-    comment: ""
-  })
-  console.log(props.tweets)
-  const {id} = useParams();
+    comment: "",
+  });
 
-  const URL = `http://localhost:4000/tweets/${id}`
+  const { id } = useParams();
+
+  const URL = `http://localhost:4000/tweets/${id}`;
 
   const getComment = async () => {
     try {
       const res = await fetch(URL);
       const tweet = await res.json();
-      console.log(tweet)
       setComment(tweet.comments);
     } catch (err) {
       console.log(err);
     }
-  }
-
+  };
 
   const handleChange = (e) => {
     setNewComment({ ...newComment, [e.target.name]: e.target.value });
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,12 +40,11 @@ const Comments = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(currentState),
-      }
-      const commentURL = `http://localhost:4000/comments/${id}`
-
+      };
+      const commentURL = `http://localhost:4000/comments/${id}`;
 
       const response = await fetch(commentURL, requestOptions);
-      console.log(response)
+      console.log(response);
       const createdComment = await response.json();
       console.log(createdComment);
       setComment([...comment, createdComment]);
@@ -63,14 +58,13 @@ const Comments = (props) => {
     }
   };
 
+
   const loaded = () => {
     return (
-      <div>          
-
+      <div>
         <section className="commentFormSection">
           <form className="commentForm" onSubmit={handleSubmit}>
-            <div className="commentInputFields"> 
-
+            <div className="commentInputFields">
               <label>
                 <input
                   className="commentInput commentName"
@@ -92,7 +86,7 @@ const Comments = (props) => {
                   placeholder="Tweet your reply"
                   maxLength="200"
                   onChange={handleChange}
-                  onKeyUp={e => setCount(e.target.value.length)}
+                  onKeyUp={(e) => setCount(e.target.value.length)}
                 />
               </label>
               <label>
@@ -109,11 +103,10 @@ const Comments = (props) => {
             </div>
             <p>{count}</p>
 
-          <div className="commentButtonDiv">
-            <input className="CommentButton" type="submit" value="Reply" />
-          </div>
+            <div className="commentButtonDiv">
+              <input className="CommentButton" type="submit" value="Reply" />
+            </div>
           </form>
-
         </section>
         <section className="returnSection">
           {comment?.map((comment) => {

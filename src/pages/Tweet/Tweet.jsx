@@ -96,7 +96,7 @@ const Tweet = (props) => {
                 value={newForm.title}
                 name="title"
                 placeholder="What's happening?"
-                maxLength="15"
+                maxLength="300"
                 onKeyUp={(e) => setCount(e.target.value.length)}
               />
             </label>
