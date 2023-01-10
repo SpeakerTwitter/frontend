@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from 'react-router-dom'
 import "./Tweet.css";
 import "./Tweet-List.css";
 
@@ -14,7 +13,7 @@ const Tweet = (props) => {
     image: "",
   });
   // API URL
-  const BASE_URL = "http://localhost:4000/tweets";
+  const BASE_URL = "https://backend-twitter2.herokuapp.com/tweets";
   // Use tweet function to call in useEffect
   const getTweet = async () => {
     try {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Navigate, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
 import "./Update.css";
 
@@ -11,7 +11,7 @@ const Show = (props) => {
 
   const { id } = useParams();
   const navigate = useNavigate();
-  const URL = `http://localhost:4000/tweets/${id}`;
+  const URL = `https://backend-twitter2.herokuapp.com/tweets/${id}`;
 
   const handleChange = (e) => {
     setEditForm({ ...editForm, [e.target.name]: e.target.value });
