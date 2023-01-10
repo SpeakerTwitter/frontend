@@ -14,7 +14,7 @@ const Comments = (props) => {
 
   const { id } = useParams();
 
-  const URL = `http://localhost:4000/tweets/${id}`;
+  const URL = `https://backend-twitter2.herokuapp.com/tweets/${id}`;
 
   const getComment = async () => {
     try {
