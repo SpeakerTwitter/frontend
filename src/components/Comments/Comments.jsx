@@ -58,15 +58,15 @@ const Comments = (props) => {
     }
   };
 
-
   const loaded = () => {
     return (
       <div>
-        <section className="commentFormSection">
-          <form className="commentForm" onSubmit={handleSubmit}>
+        <section className="commentFormSection" >
+          <form className="commentForm" onSubmit={handleSubmit} height={300}>
             <div className="commentInputFields">
               <label>
                 <input
+
                   className="commentInput commentName"
                   autoComplete="off"
                   type="text"
@@ -101,12 +101,13 @@ const Comments = (props) => {
                 />
               </label>
             </div>
-            <p>{count}</p>
-
             <div className="commentButtonDiv">
+              <p className="tweetCharCount">{count}/200</p>
               <input className="CommentButton" type="submit" value="Reply" />
             </div>
           </form>
+
+          
         </section>
         <section className="returnSection">
           {comment?.map((comment) => {

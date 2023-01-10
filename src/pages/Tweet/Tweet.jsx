@@ -122,7 +122,7 @@ const Tweet = (props) => {
 
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
-            return (
+            return (<Link to={`/tweet/${tweet._id}`}>
               <div key={tweet._id} className="tweet-card">
                 <img
                   className="emptyProfile"
@@ -130,9 +130,9 @@ const Tweet = (props) => {
                 />
                 <div className="tweet">
                   <div className="tweetCardInfo">
-                    <Link to={`/tweet/${tweet._id}`}>
+                    
                       <h1 className="tweetCardPerson">{tweet.name}</h1>
-                    </Link>
+
                     <h3 className="tweetCardTitle">{tweet.title}</h3>
                   </div>
                 </div>
@@ -142,7 +142,8 @@ const Tweet = (props) => {
                   alt=""
                   width={200}
                 />
-              </div>
+              </div>                    
+              </Link>
             );
           })}
         </section>

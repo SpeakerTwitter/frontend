@@ -1,5 +1,4 @@
 .returnSection{
-
     display: block;
     margin: 0 auto;
     display: flex;
@@ -10,8 +9,8 @@
 
 }
 .commentDivs:hover{
-  background-color: rgba(148, 148, 148, 0.133);
   cursor: pointer;
+  background-color: rgba(148, 148, 148, 0.133);
 }
 .commentFormSection{
     width: 500px;
@@ -19,20 +18,21 @@
     border: .5px solid black;
     display: block;
     margin: 0 auto;
-    height: 120px;
+    height: 150px;
 }
 .commentInputFields{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .commentForm{
     display: flex;
-    width: 100%;
-    font-family: 'Noto Sans JP', sans-serif;    
-    justify-content: flex-start;
+    font-family: 'Noto Sans JP', sans-serif;   
+    flex-direction: column; 
 }
 .commentButtonDiv{
-    width: 100%
+    display: flex;
+    justify-content: flex-end;
 }
 .CommentButton{
     background-color: rgb(109, 194, 248);
@@ -47,13 +47,15 @@
     float: right;
 }
 .commentInput{
+  font-family: "Noto Sans JP", sans-serif;
+
     border: transparent;
     background-color: transparent;
     outline: none;
-    width: 300px;
+    width: 500px;
 }
 .commentListTweet{
-    font-weight: 400;
+    font-weight: 300;
     font-size: 15px;
     margin-top: 0;
     margin-left: 70px;

@@ -1,28 +1,21 @@
+* {
+  /* background-color: rgb(22, 137, 209); */
+}
 .App {
   font-family: "Noto Sans JP", sans-serif;
-  background-color: rgb(177, 220, 247);
 }
+
 textarea {
   resize: none;
 }
-.sidenav {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-  border-right: 1px solid black;
+.nav{
+  display: flex;
 }
-
-.twitterBird{
-  margin-left: 100px
+.twitterBird {
+  margin-left: 100px;
 }
 .twitterBird:hover {
   animation: rotate-center 0.6s ease-in-out both;
-
 }
 
 @keyframes rotate-center {
@@ -33,7 +26,7 @@ textarea {
     transform: rotate(360deg);
   }
 }
-a{
+a {
   text-decoration: none;
 }
 .FormBlock {
@@ -49,31 +42,41 @@ img {
 }
 
 h1.homeLink {
-  margin-left: 250px;
   text-decoration: none;
   color: black;
 }
 
-.seeTweets, .replyingTo, .footer{
+.tweetCardPerson {
+  text-decoration: none;
+  color: black;
+}
+.tweetCardTitle {
+  font-weight: 300;
+  font-size: 15px;
+  color: black;
+}
+.seeTweets,
+.replyingTo,
+.footer {
   height: 40px;
   display: block;
-text-align: center;
-margin: 0;
-margin-top: 20px;
-color:rgb(109, 194, 248);
-font-size: small;
+  text-align: center;
+  margin: 0;
+  margin-top: 20px;
+  color: rgb(109, 194, 248);
+  font-size: small;
 }
 .person::placeholder {
   font-weight: 800;
   font-size: 18px;
 }
 .TheTweet {
-  height: 50px;
+  height: 100px;
   width: 200px;
   word-wrap: break-word;
   font-size: 24px;
 }
-.image{
+.image {
   font-size: 14px;
   background-color: transparent;
 }
@@ -100,16 +103,16 @@ font-size: small;
 }
 .buttonDiv {
   display: flex;
-justify-content: flex-end;
+  justify-content: flex-end;
 }
-.tweetCharCount{
+.tweetCharCount {
   color: black;
   margin-right: 10px;
 }
-textarea{
+textarea {
   background-color: transparent;
 }
-.TweetButton{
+.TweetButton {
   background-color: white;
   border: none;
   color: black;
@@ -119,8 +122,7 @@ textarea{
   border-radius: 40px;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
-  border: 1px solid black
-
+  border: 1px solid black;
 }
 .TweetButton:focus {
   animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
@@ -139,20 +141,22 @@ textarea{
     transform: rotateX(180deg);
   }
 }
-.tweet-card:hover{    
+.tweet-card:hover {
   background-color: rgba(148, 148, 148, 0.133);
   cursor: pointer;
 }
 
-.tweetCardList, .returnSection {
+.tweetCardList,
+.returnSection {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
 }
-.tweet-card, .commentDivs{
+.tweet-card,
+.commentDivs {
   width: 500px;
   border: solid 1px rgba(0, 0, 0, 0.4);
-  border-top: solid .5px black;
+  border-top: solid 0.5px black;
   padding: 5px;
 }
 h1.tweetName {
@@ -160,21 +164,21 @@ h1.tweetName {
   height: 50px;
 }
 .tweetImage {
-  position:relative;
+  position: relative;
   width: 80%;
   display: block;
   margin: 0 auto;
   border-radius: 15px;
-  margin-bottom: 50px
+  margin-bottom: 50px;
 }
-div.tweet{
+div.tweet {
   display: flex;
   justify-content: flex-start;
 }
 
-.footer{
-  color:black;
+.footer {
+  color: black;
 }
-.tweetTitle{
+.tweetTitle {
   font-weight: 400;
 }
