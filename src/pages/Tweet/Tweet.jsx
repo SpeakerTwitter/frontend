@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Tweet.css";
 import "./Tweet-List.css";
 
-const Tweet = (props) => {
+const Tweet = () => {
   const [tweet, setTweet] = useState([]);
   const [count, setCount] = useState(0);
   const [newForm, setNewForm] = useState({
@@ -12,9 +12,9 @@ const Tweet = (props) => {
     title: "",
     image: "",
   });
-  // API URL
+
   const BASE_URL = "https://backend-twitter2.herokuapp.com/tweets";
-  // Use tweet function to call in useEffect
+
   const getTweet = async () => {
     try {
       const res = await fetch(BASE_URL);
@@ -25,20 +25,21 @@ const Tweet = (props) => {
       console.log(err);
     }
   };
-  // Handlers
+
   const handleChange = (e) => {
     setNewForm({ ...newForm, [e.target.name]: e.target.value });
   };
 
-
   const handleSubmit = async (e) => {
-    // 0. prevent default (event object method)
+
+    // PREVENT DEFAULT
     e.preventDefault();
 
-    // 1. capturing our local state
+    // CAPTURE LOCAL STATE
     const currentState = { ...newForm };
-    // check any fields for property data types / truthy value (function call - stretch)
     try {
+
+      // FETCH TO BE, SENDING DATA
       const requestOptions = {
         method: "POST",
         headers: {
@@ -46,17 +47,17 @@ const Tweet = (props) => {
         },
         body: JSON.stringify(currentState),
       };
-      // 2. specify request method , headers, Content-Type
-      // 3. make fetch to BE - sending data (requestOptions)
-      // 3a fetch sends the data to API - (mongo)
+
+      // SEND DATA TO API
       const response = await fetch(BASE_URL, requestOptions);
-      // 4. check our response -
-      // 5. parse the data from the response into JS (from JSON)
+
+      // PARSE DATA FROM RESPONSE INTO JS 
       const createdTweet = await response.json();
-      console.log(createdTweet);
-      // update local state with response (json from be)
+      
+      // UPDATE LOCAL STATE
       setTweet([...tweet, createdTweet]);
-      // reset newForm state so that our form empties out
+
+      // RESET newForm STATE SO FORM EMPTIES OUT
       setNewForm({
         name: "",
         title: "",
@@ -66,6 +67,8 @@ const Tweet = (props) => {
       console.log(err);
     }
   };
+
+  // RETURNS CREATE A TWEET AND MAPS OVER ALL TWEETS
   const loaded = () => {
     return (
       <div className="home">
@@ -99,7 +102,6 @@ const Tweet = (props) => {
                 onKeyUp={(e) => setCount(e.target.value.length)}
               />
             </label>
-
             <label>
               <input
                 className="image"
@@ -118,30 +120,29 @@ const Tweet = (props) => {
           </form>
         </section>
         <h6 className="seeTweets">Show All Tweets</h6>
-
         <section className="tweetCardList">
           {tweet?.map((tweet) => {
-            return (<Link to={`/tweet/${tweet._id}`}>
-              <div key={tweet._id} className="tweet-card">
-                <img
-                  className="emptyProfile"
-                  src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
-                />
-                <div className="tweet">
-                  <div className="tweetCardInfo">
-                    
+            return (
+              <Link to={`/tweet/${tweet._id}`}>
+                <div key={tweet._id} className="tweet-card">
+                  <img
+                    className="emptyProfile"
+                    src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
+                  />
+                  <div className="tweet">
+                    <div className="tweetCardInfo">
                       <h1 className="tweetCardPerson">{tweet.name}</h1>
 
-                    <h3 className="tweetCardTitle">{tweet.title}</h3>
+                      <h3 className="tweetCardTitle">{tweet.title}</h3>
+                    </div>
                   </div>
+                  <img
+                    className="tweetImage"
+                    src={tweet.image}
+                    alt=""
+                    width={200}
+                  />
                 </div>
-                <img
-                  className="tweetImage"
-                  src={tweet.image}
-                  alt=""
-                  width={200}
-                />
-              </div>                    
               </Link>
             );
           })}
@@ -149,7 +150,8 @@ const Tweet = (props) => {
       </div>
     );
   };
-  // Loading
+
+  // LOADING
   const loading = () => (
     <section className="loading">
       <h1>
@@ -163,9 +165,12 @@ const Tweet = (props) => {
       </h1>
     </section>
   );
+
+  // INITIATES UPON MOUNT
   useEffect(() => {
     getTweet();
   }, []);
+
   return (
     <section className="tweet-list">{tweet ? loaded() : loading()}</section>
   );

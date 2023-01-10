@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, redirect } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
 import "./Update.css";
 
 const Show = (props) => {
   const [count, setCount] = useState(0);
   const [tweet, setTweet] = useState(null);
-  const [editForm, setEditForm] = useState("");
+  const [editForm, setEditForm] = useState([]);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ const Show = (props) => {
     setEditForm({ ...editForm, [e.target.name]: e.target.value });
   };
 
+  // DISPLAYS TWEET/:ID
   const getTweet = async () => {
     try {
       const response = await fetch(URL);
@@ -28,6 +29,7 @@ const Show = (props) => {
     }
   };
 
+  // UPDATE
   const updatedTweet = async (e) => {
     e.preventDefault();
     try {
@@ -38,21 +40,25 @@ const Show = (props) => {
       };
       const response = await fetch(URL, options);
       const updatedTweet = await response.json();
-      console.log(updatedTweet);
       setTweet(updatedTweet);
-      // setEditForm(updatedTweet);
+
+      // REFRESH PAGE
+      navigate(0);
     } catch (err) {
       console.log(err);
       navigate(URL);
     }
   };
+
+  // DELETE
   const removeTweet = async (e) => {
     try {
       const options = {
         method: "DELETE",
       };
       const response = await fetch(URL, options);
-      const deletedTweet = await response.json();
+
+      // REDIRECTS TO HOME PAGE
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -60,10 +66,12 @@ const Show = (props) => {
     }
   };
 
+  // INITIATES UPON MOUNT
   useEffect(() => {
     getTweet();
   }, []);
 
+  // DISPLAYS UPDATE FORM & TWEET:ID
   const loaded = () => {
     return (
       <div>
@@ -134,6 +142,7 @@ const Show = (props) => {
     );
   };
 
+  // LOADING
   const loading = () => {
     return (
       <section className="loading">
@@ -143,12 +152,14 @@ const Show = (props) => {
             <img
               className="spinner"
               src="https://freesvg.org/img/1544764567.png"
-            />{" "}
+            />
           </span>
         </h1>
       </section>
     );
   };
+
   return tweet ? loaded() : loading();
 };
+
 export default Show;

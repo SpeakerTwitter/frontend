@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const Comments = (props) => {
+const Comments = () => {
   const [count, setCount] = useState(0);
   const [comment, setComment] = useState([]);
   const [newComment, setNewComment] = useState({
@@ -14,7 +14,9 @@ const Comments = (props) => {
 
   const { id } = useParams();
 
+  // HEROKU URL
   const URL = `https://backend-twitter2.herokuapp.com/tweets/${id}`;
+
 
   const getComment = async () => {
     try {
@@ -30,6 +32,7 @@ const Comments = (props) => {
     setNewComment({ ...newComment, [e.target.name]: e.target.value });
   };
 
+  // POST
   const handleSubmit = async (e) => {
     e.preventDefault();
     const currentState = { ...newComment };
@@ -41,23 +44,22 @@ const Comments = (props) => {
         },
         body: JSON.stringify(currentState),
       };
-      const commentURL = `http://localhost:4000/comments/${id}`;
 
+      const commentURL =`https://backend-twitter2.herokuapp.com/comments/${id}`
       const response = await fetch(commentURL, requestOptions);
-      console.log(response);
       const createdComment = await response.json();
-      console.log(createdComment);
       setComment([...comment, createdComment]);
       setNewComment({
         name: "",
         title: "",
         image: "",
-      });
+      });    
     } catch (err) {
       console.log(err);
     }
   };
 
+  // CREATE A COMMENT
   const loaded = () => {
     return (
       <div>
@@ -66,7 +68,6 @@ const Comments = (props) => {
             <div className="commentInputFields">
               <label>
                 <input
-
                   className="commentInput commentName"
                   autoComplete="off"
                   type="text"
@@ -106,8 +107,6 @@ const Comments = (props) => {
               <input className="CommentButton" type="submit" value="Reply" />
             </div>
           </form>
-
-          
         </section>
         <section className="returnSection">
           {comment?.map((comment) => {
@@ -132,6 +131,7 @@ const Comments = (props) => {
     );
   };
 
+  // LOADING
   const loading = () => (
     <section className="loading">
       <h1>
@@ -146,6 +146,7 @@ const Comments = (props) => {
     </section>
   );
 
+  // INITIATES UPON MOUNT IF THERE IS A COMMENT
   useEffect(() => {
     getComment();
   }, [comment.length]);
