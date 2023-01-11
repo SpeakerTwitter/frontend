@@ -6,9 +6,11 @@
 Twitter 2.0 was created by reverse engineering the major social media platform Twitter. This full-stack application's backend includes Create, Read, Update, and Destroy functionality and uses a references to a seperate model. On the front-end, the application uses React.js to build a dynamic and responsive user interface. This application allows users to input their name as well as write a tweet that can include an image and post it. This app also allows users to comment on posts and delete posts. 
 
 ## Screenshot
-##### Home Page: 
+### Home Page: 
+![Uploading Screen Shot 2023-01-10 at 7.39.35 PM.png…]()
 
-##### Comment Page:
+### Comment Page:
+<img width="2240" alt="Screen Shot 2023-01-10 at 7 40 15 PM" src="https://user-images.githubusercontent.com/107048020/211701678-7ea29ef9-fcab-4f83-a183-a17269a7eafa.png">
 
 ## Technologies Used:
 <ul>
