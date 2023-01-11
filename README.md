@@ -7,7 +7,8 @@ Twitter 2.0 was created by reverse engineering the major social media platform T
 
 ## Screenshot
 ### Home Page: 
-![Uploading Screen Shot 2023-01-10 at 7.39.35 PM.png…]()
+<img width="2237" alt="Screen Shot 2023-01-10 at 7 39 35 PM" src="https://user-images.githubusercontent.com/107048020/211701821-7c4824f6-a60d-479c-a13b-c881397057cc.png">
+
 
 ### Comment Page:
 <img width="2240" alt="Screen Shot 2023-01-10 at 7 40 15 PM" src="https://user-images.githubusercontent.com/107048020/211701678-7ea29ef9-fcab-4f83-a183-a17269a7eafa.png">
