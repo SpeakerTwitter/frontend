@@ -30,10 +30,10 @@ Twitter 2.0 was created by reverse engineering the major social media platform T
 ``` $ npm install ```
 
 ## Wire Frame
-# Home page
+### Home page:
 <img width="472" alt="Screen Shot 2023-01-03 at 2 36 07 PM" src="https://user-images.githubusercontent.com/116750522/210478104-7766097f-7659-4469-b176-058c9ec072d9.png">
 
-# Tweet page
+### Tweet page:
 <img width="472" alt="Screen Shot 2023-01-03 at 2 36 14 PM" src="https://user-images.githubusercontent.com/116750522/210478111-36fff169-dd9f-4f81-9970-353f570f112e.png">
 
 ## ERD 
