@@ -74,8 +74,8 @@ const Show = (props) => {
   // DISPLAYS UPDATE FORM & TWEET:ID
   const loaded = () => {
     return (
-      <div>
-        <section>
+      <div >
+        <section >
           <div className="tweet">
             <section className="clickedTweet">
               <div className="tweetDeleteHeader">
@@ -111,15 +111,6 @@ const Show = (props) => {
               placeholder="name"
               onChange={handleChange}
             />
-            <input
-              type="text"
-              autoComplete="off"
-              className="commentInput commentTweet"
-              value={editForm.image}
-              name="image"
-              placeholder="image URL"
-              onChange={handleChange}
-            />
             <textarea
               type="text"
               autoComplete="off"
@@ -128,7 +119,17 @@ const Show = (props) => {
               name="title"
               placeholder="title"
               onChange={handleChange}
+              maxLength="300"
               onKeyUp={(e) => setCount(e.target.value.length)}
+            />
+            <input
+              type="text"
+              autoComplete="off"
+              className="commentInput commentTweet"
+              value={editForm.image}
+              name="image"
+              placeholder="image URL"
+              onChange={handleChange}
             />
             <div className="updateFormCounter">
               <p className="tweetCharCount">{count}/300</p>

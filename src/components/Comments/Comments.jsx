@@ -111,7 +111,7 @@ const Comments = () => {
         <section className="returnSection">
           {comment?.map((comment) => {
             return (
-              <div className="commentDivs" key={comment._id}>
+              <div key={comment._id} className="commentDivs" >
                 <div className="tweet">
                   <img src="https://img.icons8.com/ios-filled/512/user-male-circle.png" />
                   <h3 className="commentName">{comment.name}</h3>
