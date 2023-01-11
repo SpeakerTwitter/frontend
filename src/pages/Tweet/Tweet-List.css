@@ -8,10 +8,7 @@
     width: 500px;
 
 }
-.commentDivs:hover{
-  cursor: pointer;
-  background-color: rgba(148, 148, 148, 0.133);
-}
+
 .commentFormSection{
     width: 500px;
     padding: 5px;
