@@ -120,16 +120,16 @@ const Tweet = () => {
           </form>
         </section>
         <h6 className="seeTweets">Show All Tweets</h6>
-        <section className="tweetCardList">
+        <section className="tweetCardList" >
           {tweet?.map((tweet) => {
             return (
-              <Link to={`/tweet/${tweet._id}`}>
-                <div key={tweet._id} className="tweet-card">
+              <Link key={tweet._id} to={`/tweet/${tweet._id}`}>
+                <div className="tweet-card">
                   <img
                     className="emptyProfile"
                     src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
                   />
-                  <div className="tweet">
+                  <div className="tweet"  >
                     <div className="tweetCardInfo">
                       <h1 className="tweetCardPerson">{tweet.name}</h1>
 
