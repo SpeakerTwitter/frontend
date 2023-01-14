@@ -38,6 +38,8 @@
     color: black;
     font-weight: 800;
     margin: 0;
+    display: flex;
+    align-items: center;
     
 }
 .commentForm{
@@ -52,4 +54,13 @@
 
 .showTweet{
     font-weight: 400;
+    margin: 0 10px 10px 70px;
+}
+@media only screen and (max-width: 600px) {
+    .clickedTweet{
+        width: 400px;
+    }
+    .showTweet{
+        font-size: 18px;
+    }
 }

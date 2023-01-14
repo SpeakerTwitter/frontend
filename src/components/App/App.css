@@ -3,11 +3,13 @@ html {
   #d2d2d2,
    rgb(116, 200, 251),
    #d2d2d2,
-   #797878
+   #9e9d9d
   );
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100%;
+  display: block;
+  margin: 0;
 }
 @keyframes gradient {
   0% {
@@ -73,6 +75,8 @@ h1.homeLink {
   font-weight: 300;
   font-size: 15px;
   color: black;
+  margin-top: 0;
+  margin-left: 70px;
 }
 .seeTweets,
 .replyingTo,
@@ -93,10 +97,12 @@ h1.homeLink {
   width: 200px;
   word-wrap: break-word;
   font-size: 24px;
+  margin-left: 70px;
 }
 .image {
   font-size: 14px;
   background-color: transparent;
+  margin-left: 70px;
 }
 .person,
 .TheTweet,
@@ -134,7 +140,7 @@ textarea {
 .TweetButton {
   background-color: rgb(86, 187, 250);
   border: none;
-  color: black;
+  color: white;
   padding: 10px 20px;
   text-align: center;
   font-size: 16px;
@@ -188,7 +194,7 @@ h1.tweetName {
   display: block;
   margin: 0 auto;
   border-radius: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 div.tweet {
   display: flex;
@@ -200,4 +206,43 @@ div.tweet {
 }
 .tweetTitle {
   font-weight: 400;
+}
+
+@media only screen and (max-width: 600px) {
+  .tweet-card, .commentDivs, .form{
+    width: 400px;
+  }
+  .tweet-image{
+    margin: 0 0 0 0;
+  }
+  .img{
+    width: 30px;
+    margin: 5px;
+  }
+  .twitterBird{
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html{
+    display: block;
+    margin-left: 50px;
+  }
+  img{
+    width: 30px;
+    margin: 5px
+  }
+  .tweet-card, .form{
+    width: 300px;
+  }
+  .tweetCardPerson, .tweetCardTitle{
+    margin: 0
+  }
+  .tweetCardTitle{
+    margin: 0 0 10px 40px;
+  }
+  .TheTweet{
+    margin-left: 40px
+  }
 }
