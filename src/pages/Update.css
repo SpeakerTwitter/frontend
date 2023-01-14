@@ -57,4 +57,10 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .updateButton, .CommentButton{
+    padding: 5px 10px;
+    margin: 10px 5px;
+    font-size: 12px;
+    border-radius: 20px;
+  }
 }
