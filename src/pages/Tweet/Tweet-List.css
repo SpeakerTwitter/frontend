@@ -90,4 +90,11 @@ padding-left: 5px;
     .returnSection{
       width: 400px
     }
+    .commentTweet{
+      font-size: 10px;
+    }
+  .commentFormSection{
+          margin: 0;
+          width: 390px
+      }
   }

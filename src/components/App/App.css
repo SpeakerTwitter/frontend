@@ -1,7 +1,7 @@
 html {
   background: linear-gradient(-45deg,
   #ffffff,
-   rgb(116, 200, 251),
+   rgba(116, 199, 251, 0.803),
    #d2d2d2,
    #ffffff
   );
@@ -81,11 +81,11 @@ h1.homeLink {
 .seeTweets,
 .replyingTo,
 .footer {
-  height: 40px;
+  height: 30px;
   display: block;
   text-align: center;
   margin: 0;
-  margin-top: 20px;
+  margin-top: 5px;
   font-size: small;
 }
 .person::placeholder {
@@ -139,6 +139,8 @@ h1.homeLink {
   color: black;
   margin-right: 10px;
   font-size: smaller;
+  display: flex;
+  align-items: center;
 }
 textarea {
   background-color: transparent;
@@ -193,7 +195,6 @@ textarea {
   position: block;
   margin: 0;
 }
-
 h1.tweetName {
   margin: 0;
   height: 50px;
@@ -235,16 +236,22 @@ div.tweet {
   .person, .TheTweet, .image{
     width: 330px;
   }
+  .seeTweets,
+.replyingTo,
+.footer{
+  font-size: 10px;
+  margin-top: 10px;
+}
 }
 
 @media only screen and (max-width: 450px) {
   html{
     display: block;
-    margin-left: 20px;
+    margin-left: 10px;
   }
   img{
     width: 30px;
-    margin: 5px
+    /* margin: 5px */
   }
   .tweet-card, .form{
     width: 300px;
@@ -269,7 +276,8 @@ div.tweet {
   height: 60px
 }
 .tweetCharCount{
-  font-size: 12px;
+  font-size: 10px;
+  margin: 0;
 }
 .nav{
   height: 40px
@@ -284,5 +292,18 @@ div.tweet {
   margin: 5px 5px;
   font-size: 12px;
   border-radius: 20px;
+}
+.twitterBird{
+  margin: 0
+}
+h1.homeLink{
+  font-size: 18px;
+}
+.person{
+  font-size: 14px;
+}
+.person::placeholder {
+  font-weight: 800;
+  font-size: 14px;
 }
 }

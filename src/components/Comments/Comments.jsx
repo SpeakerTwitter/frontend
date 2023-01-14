@@ -73,10 +73,10 @@ const Comments = () => {
     return (
       <div>
         <section className="commentFormSection">
-          {/* <img
+          <img
             className="emptyProfile"
             src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
-          /> */}
+          />
           <form className="commentForm" onSubmit={handleSubmit} height={300}>
             <div className="commentInputFields">
               <label>

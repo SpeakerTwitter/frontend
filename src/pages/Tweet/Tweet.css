@@ -64,3 +64,8 @@
         font-size: 18px;
     }
 }
+@media only screen and (max-width: 450px) {
+    .clickedTweet{
+        width: 400px;
+    }
+}
