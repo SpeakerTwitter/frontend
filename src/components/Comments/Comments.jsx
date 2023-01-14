@@ -17,7 +17,6 @@ const Comments = () => {
   // HEROKU URL
   const URL = `https://backend-twitter2.herokuapp.com/tweets/${id}`;
 
-
   const getComment = async () => {
     try {
       const res = await fetch(URL);
@@ -34,9 +33,13 @@ const Comments = () => {
 
   // POST
   const handleSubmit = async (e) => {
+    // PREVENT DEFAULT
     e.preventDefault();
     const currentState = { ...newComment };
+
+    // CAPTURE LOCAL STATE
     try {
+      // FETCH TO BE, SENDING DATA
       const requestOptions = {
         method: "POST",
         headers: {
@@ -45,15 +48,21 @@ const Comments = () => {
         body: JSON.stringify(currentState),
       };
 
-      const commentURL =`https://backend-twitter2.herokuapp.com/comments/${id}`
+      const commentURL = `https://backend-twitter2.herokuapp.com/comments/${id}`;
+
+      // SEND DATA TO API
       const response = await fetch(commentURL, requestOptions);
+
+      // PARSE DATA FROM RESPONSE INTO JS
       const createdComment = await response.json();
+
+      // UPDATE LOCAL STATE
       setComment([...comment, createdComment]);
       setNewComment({
         name: "",
         title: "",
         image: "",
-      });    
+      });
     } catch (err) {
       console.log(err);
     }
@@ -63,7 +72,11 @@ const Comments = () => {
   const loaded = () => {
     return (
       <div>
-        <section className="commentFormSection" >
+        <section className="commentFormSection">
+          {/* <img
+            className="emptyProfile"
+            src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
+          /> */}
           <form className="commentForm" onSubmit={handleSubmit} height={300}>
             <div className="commentInputFields">
               <label>
@@ -111,7 +124,7 @@ const Comments = () => {
         <section className="returnSection">
           {comment?.map((comment) => {
             return (
-              <div key={comment._id} className="commentDivs" >
+              <div key={comment._id} className="commentDivs">
                 <div className="tweet">
                   <img src="https://img.icons8.com/ios-filled/512/user-male-circle.png" />
                   <h3 className="commentName">{comment.name}</h3>

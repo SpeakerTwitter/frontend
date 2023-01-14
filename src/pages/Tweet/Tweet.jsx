@@ -31,14 +31,12 @@ const Tweet = () => {
   };
 
   const handleSubmit = async (e) => {
-
     // PREVENT DEFAULT
     e.preventDefault();
 
     // CAPTURE LOCAL STATE
     const currentState = { ...newForm };
     try {
-
       // FETCH TO BE, SENDING DATA
       const requestOptions = {
         method: "POST",
@@ -51,9 +49,9 @@ const Tweet = () => {
       // SEND DATA TO API
       const response = await fetch(BASE_URL, requestOptions);
 
-      // PARSE DATA FROM RESPONSE INTO JS 
+      // PARSE DATA FROM RESPONSE INTO JS
       const createdTweet = await response.json();
-      
+
       // UPDATE LOCAL STATE
       setTweet([...tweet, createdTweet]);
 
@@ -120,22 +118,19 @@ const Tweet = () => {
           </form>
         </section>
         <h6 className="seeTweets">Show All Tweets</h6>
-        <section className="tweetCardList" >
+        <section className="tweetCardList">
           {tweet?.map((tweet) => {
             return (
               <Link key={tweet._id} to={`/tweet/${tweet._id}`}>
                 <div className="tweet-card">
-                  <img
-                    className="emptyProfile"
-                    src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
-                  />
-                  <div className="tweet"  >
-                    <div className="tweetCardInfo">
-                      <h1 className="tweetCardPerson">{tweet.name}</h1>
-
-                      <h3 className="tweetCardTitle">{tweet.title}</h3>
-                    </div>
+                  <div className="tweet">
+                    <img
+                      className="emptyProfile"
+                      src="https://img.icons8.com/ios-filled/512/user-male-circle.png"
+                    />
+                    <h1 className="tweetCardPerson">{tweet.name}</h1>
                   </div>
+                  <h3 className="tweetCardTitle">{tweet.title}</h3>
                   <img
                     className="tweetImage"
                     src={tweet.image}
