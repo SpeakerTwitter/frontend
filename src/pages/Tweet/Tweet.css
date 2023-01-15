@@ -71,6 +71,9 @@
     .showHTML{
         margin-left: -10px
     }
+    .showTweet{
+        margin: 0 0 5px 40px;
+    }
     .emptyProfile{
         width: 30px;
         height: 30px;
