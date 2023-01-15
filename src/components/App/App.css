@@ -306,4 +306,8 @@ h1.homeLink{
   font-weight: 800;
   font-size: 14px;
 }
+.commentDivs{
+  width: 300px;
+  margin: 0
+}
 }

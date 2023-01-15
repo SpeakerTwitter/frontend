@@ -1,100 +1,112 @@
-.returnSection{
-    display: flex;
-    width: 100%;
-    font-family: 'Noto Sans JP', sans-serif;    
-    align-self: center;
-
-}
-.commentFormSection{
-    width: 500px;
-    padding: 5px;
-    border: .5px solid black;
-    display: block;
-    margin: 0 auto;
-}
-.commentInputFields{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.commentForm{
-    display: flex;
-    font-family: 'Noto Sans JP', sans-serif;   
-    flex-direction: column; 
-}
-.commentButtonDiv{
-    display: flex;
-    justify-content: flex-end;
-}
-.CommentButton{
-    background-color: rgb(109, 194, 248);
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 40px;
-    font-family: "Noto Sans JP", sans-serif;
-    font-weight: 700;
-    float: right;
-}
-.commentInput{
+.returnSection {
+  display: flex;
+  width: 100%;
   font-family: "Noto Sans JP", sans-serif;
-padding-left: 5px;
-    border: transparent;
-    background-color: transparent;
-    outline: none;
-    width: 300px;
+  align-self: center;
 }
-.commentListTweet{
-    font-weight: 300;
-    font-size: 15px;
-    margin-top: 0;
-    margin-left: 70px;
+.commentFormSection {
+  width: 500px;
+  padding: 5px;
+  border: 0.5px solid black;
+  display: block;
+  margin: 0 auto;
 }
-.commentName{
-    font-size: 16px;
-    color: black;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
+.commentInputFields {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.commentForm {
+  display: flex;
+  font-family: "Noto Sans JP", sans-serif;
+  flex-direction: column;
+}
+.commentButtonDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+.CommentButton {
+  background-color: rgb(109, 194, 248);
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 40px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  float: right;
+}
+.commentInput {
+  font-family: "Noto Sans JP", sans-serif;
+  padding-left: 5px;
+  border: transparent;
+  background-color: transparent;
+  outline: none;
+  width: 300px;
+}
+.commentListTweet {
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: 0;
+  margin-left: 70px;
+}
+.commentName {
+  font-size: 16px;
+  color: black;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
 }
 .CommentButton:focus {
-    animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-      both;
-    animation-duration: 1s;
-  }
-  
-  @keyframes flip-horizontal-bottom {
-    0% {
-      transform: rotateX(0);
-    }
-    50% {
-      transform: rotateX(-180deg);
-    }
-    50% {
-      transform: rotateX(180deg);
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-.commentFormSection{
-  width: 400px;
+  animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
+  animation-duration: 1s;
 }
-.commentTweet{
-  width: 250px;
-}
-  }
 
-  @media only screen and (max-width: 450px) {
-    .returnSection{
-      width: 400px
-    }
-    .commentTweet{
-      font-size: 10px;
-    }
-  .commentFormSection{
-          margin: 0;
-          width: 390px
-      }
+@keyframes flip-horizontal-bottom {
+  0% {
+    transform: rotateX(0);
   }
+  50% {
+    transform: rotateX(-180deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .commentFormSection {
+    width: 400px;
+  }
+  .commentTweet {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .returnSection {
+    display: flex;
+    justify-content: center;
+  }
+  .commentTweet {
+    font-size: 10px;
+    width: 190px;
+  }
+  .commentFormSection {
+    margin: 0 auto;
+    width: 300px;
+  }
+  .commentDivs {
+    width: 300px;
+    margin: 0;
+  }
+  .commentURL{
+    width: 190px;
+  }
+  .commentName{
+    font-size: 14px;
+    margin: 0;
+  }
+}

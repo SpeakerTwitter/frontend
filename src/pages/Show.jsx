@@ -74,12 +74,12 @@ const Show = (props) => {
   // DISPLAYS UPDATE FORM & TWEET:ID
   const loaded = () => {
     return (
-      <div >
+      <div className="showHTML">
         <section >
           <div className="tweet">
             <section className="clickedTweet">
               <div className="tweetDeleteHeader">
-                <img src="https://img.icons8.com/ios-filled/512/user-male-circle.png" />
+                <img className="emptyProfile" src="https://img.icons8.com/ios-filled/512/user-male-circle.png" />
                 <div className="nameAndDelete">
                   <h2 className="showName">{tweet.name}</h2>
                   <img
