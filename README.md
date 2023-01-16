@@ -51,10 +51,3 @@ Twitter 2.0 was created by reverse engineering the major social media platform T
   <li>Mobile responsiveness throughout all devices.</li>
 </ul>
 
-
-## Bugs? Suggestions? Contributions? 
-Email: 
-</br>
-Emily at jareckiemily@yahoo.com
-</br>
-Gabriel at a.cruzgabriel98@gmail.com
