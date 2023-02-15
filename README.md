@@ -1,7 +1,7 @@
 # Twitter 2.0
 
 ## Live:
-https://joyful-liger-ab5a7d.netlify.app/ 
+https://twittertwopoint0.netlify.app
 
 ## Heroku: 
 https://backend-twitter2.herokuapp.com/tweets
