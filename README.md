@@ -1,10 +1,11 @@
 # Twitter 2.0
 
 ## Live:
-https://twittertwopoint0.netlify.app
+<h3><a href="https://twittertwopoint0.netlify.app">View Here</a></h3>
 
 ## Heroku: 
-https://backend-twitter2.herokuapp.com/tweets
+<h3><a href="https://backend-twitter2.herokuapp.com/tweets">View Here</a></h3>
+
 
 ## Project Description 
 Twitter 2.0 was created by reverse engineering the major social media platform Twitter. This full-stack application's backend includes Create, Read, Update, and Destroy functionality and uses a references to a seperate model. On the front-end, the application uses React.js to build a dynamic and responsive user interface. This application allows users to input their name as well as write a tweet that can include an image and post it. This app also allows users to comment on posts and delete posts. 
